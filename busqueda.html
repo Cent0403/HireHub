@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Búsqueda de Empleos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/estiloBusqueda.css">
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3 col-lg-2 bg-primary text-white p-3 filtros">
+        <h6 class="fw-bold">Filtros de búsqueda</h6>
+        <hr class="text-white">
+
+        <p class="mb-1 fw-bold">Filtros adicionales</p>
+        <p class="mb-1">Nivel de experiencia</p>
+        <ul class="list-unstyled ms-2">
+          <li><input type="checkbox"> Experto</li>
+          <li><input type="checkbox"> Avanzado</li>
+          <li><input type="checkbox"> Intermedio</li>
+          <li><input type="checkbox"> Básico</li>
+        </ul>
+
+        <p class="mb-1">Sector Laboral</p>
+        <ul class="list-unstyled ms-2">
+          <li><input type="checkbox"> Salud</li>
+          <li><input type="checkbox"> Tecnología</li>
+          <li><input type="checkbox"> Agropecuario</li>
+          <li><input type="checkbox"> Alimentación</li>
+        </ul>
+
+        <p class="mb-1">Tipo de contrato</p>
+        <ul class="list-unstyled ms-2">
+          <li><input type="checkbox"> Tiempo completo</li>
+          <li><input type="checkbox"> Medio tiempo</li>
+          <li><input type="checkbox"> Por hora</li>
+        </ul>
+      </div>
+
+      <div class="col-md-9 col-lg-10 p-4">
+        <div class="d-flex justify-content-center mb-4">
+          <div class="input-group w-50">
+            <input type="text" class="form-control" placeholder="Busca tu trabajo ideal">
+            <button class="btn btn-warning fw-bold">🔍</button>
+          </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table align-middle">
+            <thead>
+              <tr class="fw-bold">
+                <th>Titulo</th>
+                <th>Fecha</th>
+                <th>Empresa</th>
+                <th>Tipo</th>
+                <th>Ubicación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="fila">
+                <td>Desarrollador React</td>
+                <td>25/07/24</td>
+                <td>NCIC</td>
+                <td>Remoto</td>
+                <td>San Salvador</td>
+              </tr>
+              <tr class="fila">
+                <td>Jefe de cocina</td>
+                <td>21/07/25</td>
+                <td>APAC</td>
+                <td>Tiempo completo</td>
+                <td>San Salvador</td>
+              </tr>
+              <tr class="fila">
+                <td>Medico Cirujano</td>
+                <td>21/07/05</td>
+                <td>Centro Medico</td>
+                <td>Tiempo completo</td>
+                <td>Santa Ana</td>
+              </tr>
+              <tr class="fila">
+                <td>Barista</td>
+                <td>26/07/22</td>
+                <td>Starbucks</td>
+                <td>Por hora</td>
+                <td>San Salvador</td>
+              </tr>
+              <tr class="fila">
+                <td>Programador Web</td>
+                <td>21/07/25</td>
+                <td>Qubebots</td>
+                <td>Medio tiempo</td>
+                <td>San Salvador</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll(".fila").forEach(fila => {
+      fila.addEventListener("click", () => {
+        alert("Haz clic en una oferta de trabajo");
+      });
+    });
+  </script>
+</body>
+</html>
