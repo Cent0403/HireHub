@@ -1,0 +1,52 @@
+body {
+  background-color: #037971;
+  font-family: Arial, sans-serif;
+  color: #023436;
+}
+
+.detalle-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.btn-volver {
+  background-color: #023436;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.btn-volver:hover {
+  background-color: #049A8F;
+  color: white;
+}
+
+.card {
+  background-color: #ffffff;
+  border-left: 6px solid #03B5AA;
+  border-radius: 12px;
+}
+
+.stars {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+}
+
+.star.selected {
+  color: #00BFB3;
+}
+
+.btn-aplicar {
+  background-color: #03B5AA;
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  padding: 10px 30px;
+}
+
+.btn-aplicar:hover {
+  background-color: #049A8F;
+  color: white;
+}
