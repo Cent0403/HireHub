@@ -1,0 +1,201 @@
+/* === PALETA DEL PROYECTO === */
+:root {
+  --c1: #03B5AA; 
+  --c2: #037971; 
+  --c3: #023436; 
+  --c4: #00BFB3; 
+  --c5: #049A8F; 
+  --sidebar-width: 250px;
+  --bg-page: #f6f7f9;
+  --border-soft: #e8ebf0;
+}
+
+
+.workhub-container {
+  min-height: 100vh;
+  display: flex;
+  overflow: hidden;
+  background: var(--bg-page);
+  color: var(--c3);
+}
+
+.workhub-sidebar {
+  width: var(--sidebar-width);
+  background: #fff;
+  border-right: 2px solid var(--border-soft);
+  display: flex;
+  flex-direction: column;
+}
+
+.workhub-main {
+  flex: 1;
+  overflow-y: auto;
+  background: var(--bg-page);
+}
+
+
+.workhub-sidebar .nav-link {
+  color: var(--c3);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.workhub-sidebar .nav-link:hover {
+  background: rgba(3, 185, 170, 0.08); 
+  color: var(--c2);
+}
+
+.workhub-sidebar .nav-link.active {
+  background: var(--c4);
+  color: #fff;
+  font-weight: 700;
+}
+
+.workhub-sidebar .sidebar-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  color: #7a8794;
+  text-transform: uppercase;
+}
+
+.workhub-sidebar .sidebar-social a {
+  color: var(--c3);
+  font-size: 18px;
+}
+
+.main-header {
+  background: var(--c1) !important;
+  box-shadow: 0 1px 0 var(--border-soft);
+}
+
+.main-header h5 {
+  color: #fff;
+}
+
+.main-header .btn-discussion {
+  background: var(--c4);
+  color: #fff;
+  border: 1px solid var(--c4);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-weight: 700;
+}
+
+.main-header .btn-discussion:hover {
+  background: var(--c5);
+  border-color: var(--c5);
+}
+
+.main-header .btn-bell {
+  background: #fff;
+  color: var(--c1);
+  border: 1px solid #fff;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.header-profile img {
+  border: 2px solid #fff;
+}
+
+.discussion-filters .btn {
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 4px 14px;
+}
+
+.workhub-container .btn.btn-primary {
+  background: var(--c1);
+  border-color: var(--c1);
+  color: #fff;
+}
+
+.workhub-container .btn.btn-primary:hover {
+  background: var(--c2);
+  border-color: var(--c2);
+}
+
+.workhub-container .btn.btn-warning {
+  background: var(--c4);
+  border-color: var(--c4);
+  color: #fff;
+}
+
+.workhub-container .btn.btn-warning:hover {
+  background: var(--c5);
+  border-color: var(--c5);
+  color: #fff;
+}
+
+.workhub-main .card {
+  border: 2px solid var(--c4);
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(0,0,0,.02);
+}
+
+.workhub-main .card-body h6.fw-bold {
+  font-size: 16px;
+}
+
+.workhub-main .badge {
+  background: var(--c4);
+  color: #fff;
+  margin-right: 6px;
+  border-radius: 6px;
+  font-size: 12px;
+  padding: 6px 10px;
+  font-weight: 700;
+}
+
+.workhub-main .meta {
+  color: #81909d;
+  font-weight: 500;
+}
+
+.workhub-main .card.border-warning {
+  border: 2px solid var(--c4) !important;
+}
+
+.workhub-main .card-body h6 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: var(--c3);
+}
+
+.workhub-main .card-body ul {
+  margin: 0;
+  padding-left: 0;
+}
+
+.workhub-main .card-body ul li {
+  list-style: none;
+  margin: 8px 0;
+}
+
+.workhub-main .card-body ul li a {
+  color: var(--c5);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.workhub-main .card-body ul li a:hover {
+  text-decoration: underline;
+}
+
+.text-primary,
+a.text-primary {
+  color: var(--c5) !important;
+}
+
+.border-warning {
+  border-color: var(--c4) !important;
+}
+
+.bg-primary {
+  background-color: var(--c1) !important;
+}

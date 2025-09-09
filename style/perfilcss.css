@@ -1,0 +1,39 @@
+
+:root {
+  --c1: #03B5AA;
+  --c2: #037971;
+  --c3: #023436;
+  --c4: #00BFB3;
+  --c5: #049A8F;
+}
+
+
+.bg-custom {
+  background-color: var(--c1);
+}
+
+
+.bg-highlight {
+  background-color: var(--c4) !important;
+}
+
+
+.active-item {
+  background-color: var(--c4);
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+}
+
+.btn-save {
+  background-color: var(--c2);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 0.6rem 1.2rem;
+}
+
+.btn-save:hover {
+  background-color: var(--c3);
+}
+

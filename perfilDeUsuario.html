@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perfil de Usuario</title>
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/style/perfilcss.css">
+  
+</head>
+<body class="bg-custom">
+
+  <div class="container py-4">
+
+    <!-- Encabezado -->
+    <header class="d-flex justify-content-between align-items-center mb-4">
+  <a href="index.html" class="btn btn-back">⬅ Regresar</a>
+  <h1 class="badge bg-highlight text-dark fs-4 px-4 py-2">Perfil de usuario</h1>
+  <div></div> 
+</header>
+
+
+    <div class="row g-4">
+
+      
+      <aside class="col-md-4">
+        <div class="card shadow-sm rounded-3">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://via.placeholder.com/70" class="rounded-circle me-2" alt="Foto usuario">
+              <div>
+                <h6 class="mb-0">Pedro Granados</h6>
+                <small class="text-muted">yourname@gmail.com</small>
+              </div>
+            </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item d-flex justify-content-between align-items-center active-item">
+                <span>👤 Mi Perfil</span>
+              </li>
+              <li class="list-group-item">⚙️ Ajustes</li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                <span>🔔 Notificaciones</span>
+                <small class="text-success">Permitir</small>
+              </li>
+              <li class="list-group-item">↩️ Log Out</li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      
+      <section class="col-md-8">
+        <div class="card shadow-sm rounded-3">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-3 position-relative">
+              <img src="https://via.placeholder.com/60" class="rounded-circle me-2" alt="Foto usuario">
+              <div>
+                <h6 class="mb-0">Pedro Granados</h6>
+                <small class="text-muted">yourname@gmail.com</small>
+              </div>
+              <button class="btn-close position-absolute top-0 end-0"></button>
+            </div>
+
+            <div class="mb-3 border-bottom d-flex justify-content-between py-2">
+              <span>Nombre</span><span class="text-muted">Pedro Granados</span>
+            </div>
+            <div class="mb-3 border-bottom d-flex justify-content-between py-2">
+              <span>Correo Electrónico</span><span class="text-muted">yourname@gmail.com</span>
+            </div>
+            <div class="mb-3 border-bottom d-flex justify-content-between py-2">
+              <span>Número de Teléfono</span><span class="text-muted">Añadir Número</span>
+            </div>
+            <div class="mb-4 border-bottom d-flex justify-content-between py-2">
+              <span>Ubicación</span><span class="text-muted">USA</span>
+            </div>
+
+            <button class="btn btn-save">Guardar Cambios</button>
+          </div>
+        </div>
+      </section>
+
+     
+      <section class="col-md-4">
+        <div class="card shadow-sm rounded-3">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h6 class="mb-0">Ajustes</h6>
+              <button class="btn-close"></button>
+            </div>
+            <div class="mb-2 border-bottom d-flex justify-content-between py-2">
+              <span>Tema</span><span class="text-muted">Light ⬇️</span>
+            </div>
+            <div class="border-bottom d-flex justify-content-between py-2">
+              <span>Idioma</span><span class="text-muted">Eng ⬇️</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
