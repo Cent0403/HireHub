@@ -1,0 +1,115 @@
+/* === PALETA === */
+:root{
+  --c1: #03B5AA; 
+  --c2: #037971; 
+  --c3: #023436; 
+  --c4: #00BFB3; 
+  --c5: #049A8F; 
+  --bg-page: #f6f7f9;
+}
+
+/* Base */
+body{
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-page);
+  color: var(--c3);
+}
+
+/* Brand */
+.brand{
+  font-weight:700;
+  font-size:1.4rem;
+  color:var(--c1);
+  text-decoration:none;
+}
+
+/* Links */
+.link-c1{ color:var(--c1); text-decoration:none; }
+.link-c1:hover{ color:var(--c2); text-decoration:underline; }
+
+/* Form focus */
+.form-control:focus{
+  border-color: var(--c1) !important;
+  box-shadow: 0 0 0 0.2rem rgba(3,181,170,0.18) !important;
+}
+
+/* Checkboxes */
+.form-check-input:checked{
+  background-color: var(--c1) !important;
+  border-color: var(--c1) !important;
+}
+.form-check-input:focus{
+  box-shadow: 0 0 0 0.2rem rgba(3,181,170,0.18) !important;
+}
+
+/* Botones */
+.btn-primary{
+  background-color: var(--c1) !important;
+  border-color: var(--c1) !important;
+}
+.btn-primary:hover{
+  background-color: var(--c2) !important;
+  border-color: var(--c2) !important;
+}
+.btn-outline-primary{
+  color: var(--c1) !important;
+  border-color: var(--c1) !important;
+}
+.btn-outline-primary:hover{
+  background-color: var(--c1) !important;
+  color: #fff !important;
+}
+
+/* Social */
+.social-icon{
+  width:18px;
+  height:18px;
+  margin-right:6px;
+  vertical-align:middle;
+}
+
+/* Imagen + overlay */
+.bg-image{
+  position:absolute;
+  inset:0;
+  background:url('/HireHub/images/empleados.jpeg') center/cover no-repeat;
+  z-index:0;
+}
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(rgba(2,52,54,0.72), rgba(2,52,54,0.55));
+  z-index:1;
+}
+.z-3{ z-index:3 !important; }
+
+.position-relative h4,
+.position-relative h5,
+.position-relative p{ color:#fff; }
+
+/* Responsive */
+@media (max-width: 991.98px){
+  .bg-image, .overlay{ display:none; }
+}
+
+.text-c1{ color:var(--c1) !important; }
+
+/* Toggle Candidate / Employer personalizado */
+.btn-outline-primary {
+  color: var(--c1);
+  border-color: var(--c1);
+  background-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--c1);
+  color: #fff;
+}
+
+.btn-check:checked + .btn-outline-primary,
+.btn-check:active + .btn-outline-primary {
+  background-color: var(--c1) !important;
+  border-color: var(--c1) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}

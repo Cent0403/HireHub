@@ -1,0 +1,118 @@
+/* === PALETA === */
+:root{
+  --c1: #03B5AA; /* principal */
+  --c2: #037971; /* hover */
+  --c3: #023436; /* texto / oscuro */
+  --c4: #00BFB3; /* acento */
+  --c5: #049A8F; /* alternativo */
+  --bg-page: #f6f7f9;
+  --border-soft: #e8ebf0;
+}
+
+/* ===== Reset / base ===== */
+*{box-sizing:border-box}
+body{
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg-page);
+  color: var(--c3);
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Brand */
+.brand{
+  font-weight:700;
+  font-size:1.4rem;
+  color:var(--c1);
+  text-decoration:none;
+}
+
+/* Links */
+.link-c1{ color:var(--c1); text-decoration:none; }
+.link-c1:hover{ color:var(--c2); text-decoration:underline; }
+
+/* Form controls focus (evitar azul bootstrap) */
+.form-control:focus{
+  border-color: var(--c1) !important;
+  box-shadow: 0 0 0 0.2rem rgba(3,181,170,0.18) !important;
+}
+
+/* Checkboxes */
+.form-check-input:checked{
+  background-color: var(--c1) !important;
+  border-color: var(--c1) !important;
+}
+.form-check-input:focus{
+  box-shadow: 0 0 0 0.2rem rgba(3,181,170,0.18) !important;
+}
+
+/* Botones */
+.btn-primary{
+  background-color: var(--c1) !important;
+  border-color: var(--c1) !important;
+  color: #fff !important;
+}
+.btn-primary:hover{ background-color: var(--c2) !important; border-color: var(--c2) !important; }
+
+.btn-outline-primary{
+  color: var(--c1) !important;
+  border-color: var(--c1) !important;
+}
+.btn-outline-primary:hover{
+  background-color: var(--c1) !important;
+  color: #fff !important;
+  border-color: var(--c1) !important;
+}
+
+/* Social icons inside btns */
+.social-icon{
+  width:18px;
+  height:18px;
+  margin-right:8px;
+  vertical-align:middle;
+  filter: grayscale(100%); /* opcional: iconos neutros */
+}
+
+/* Card-like form container (visual) */
+.w-75 { /* ya usado para limitar ancho del form */ }
+
+/* ===== Columna derecha: fondo y overlay (texto no opaco) ===== */
+.bg-image{
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  background: url('/HireHub/images/empleados.jpeg') center/cover no-repeat;
+  z-index:0;
+  background-size: cover;
+}
+
+.overlay{
+  position:absolute;
+  top:0; left:0; right:0; bottom:0;
+  /* overlay con el color oscuro (c3) en transparencia */
+  background: linear-gradient(rgba(2,52,54,0.72), rgba(2,52,54,0.55));
+  z-index:1;
+}
+
+/* Asegurar que el contenido esté por encima */
+.z-3{ z-index:3 !important; }
+
+/* Titulares y textos de la columna derecha */
+.text-c1{ color:var(--c1) !important; }
+.position-relative h4, .position-relative h5, .position-relative p {
+  color: #fff;
+  margin-bottom: .25rem;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 991.98px) {
+  .bg-image, .overlay { display:none; }
+}
+
+/* Pequeños ajustes de accesibilidad / apariencia */
+.form-label { color: var(--c3); font-weight:600; }
+.form-text { color: #6c757d; }
+
+/* Validación: forzar estilo de invalid-feedback más visible */
+.was-validated .form-control:invalid {
+  border-color: #dc3545 !important;
+  box-shadow: none !important;
+}
