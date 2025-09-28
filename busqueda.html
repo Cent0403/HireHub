@@ -3,110 +3,146 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Búsqueda de Empleos</title>
+  <title>HireHub - Buscar trabajos</title>
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/estiloBusqueda.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- CSS propio -->
+  <link href="style/estiloBusqueda.css" rel="stylesheet">
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-3 col-lg-2 bg-primary text-white p-3 filtros">
-        <h6 class="fw-bold">Filtros de búsqueda</h6>
-        <hr class="text-white">
 
-        <p class="mb-1 fw-bold">Filtros adicionales</p>
-        <p class="mb-1">Nivel de experiencia</p>
-        <ul class="list-unstyled ms-2">
-          <li><input type="checkbox"> Experto</li>
-          <li><input type="checkbox"> Avanzado</li>
-          <li><input type="checkbox"> Intermedio</li>
-          <li><input type="checkbox"> Básico</li>
-        </ul>
-
-        <p class="mb-1">Sector Laboral</p>
-        <ul class="list-unstyled ms-2">
-          <li><input type="checkbox"> Salud</li>
-          <li><input type="checkbox"> Tecnología</li>
-          <li><input type="checkbox"> Agropecuario</li>
-          <li><input type="checkbox"> Alimentación</li>
-        </ul>
-
-        <p class="mb-1">Tipo de contrato</p>
-        <ul class="list-unstyled ms-2">
-          <li><input type="checkbox"> Tiempo completo</li>
-          <li><input type="checkbox"> Medio tiempo</li>
-          <li><input type="checkbox"> Por hora</li>
+  <!-- 🔝 Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-c1" href="#">HireHub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Empleadores</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Alertas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Soporte</a></li>
         </ul>
       </div>
+    </div>
+  </nav>
 
-      <div class="col-md-9 col-lg-10 p-4">
-        <div class="d-flex justify-content-center mb-4">
-          <div class="input-group w-50">
-            <input type="text" class="form-control" placeholder="Busca tu trabajo ideal">
-            <button class="btn btn-warning fw-bold">🔍</button>
-          </div>
+  <!-- 🔍 Barra búsqueda -->
+  <div class="search-bar py-4 border-bottom">
+    <div class="container">
+      <div class="row g-2 align-items-center">
+        <div class="col-md-5">
+          <input type="text" class="form-control" placeholder="Título, palabra clave o empresa">
         </div>
-
-        <div class="table-responsive">
-          <table class="table align-middle">
-            <thead>
-              <tr class="fw-bold">
-                <th>Titulo</th>
-                <th>Fecha</th>
-                <th>Empresa</th>
-                <th>Tipo</th>
-                <th>Ubicación</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="fila">
-                <td>Desarrollador React</td>
-                <td>25/07/24</td>
-                <td>NCIC</td>
-                <td>Remoto</td>
-                <td>San Salvador</td>
-              </tr>
-              <tr class="fila">
-                <td>Jefe de cocina</td>
-                <td>21/07/25</td>
-                <td>APAC</td>
-                <td>Tiempo completo</td>
-                <td>San Salvador</td>
-              </tr>
-              <tr class="fila">
-                <td>Medico Cirujano</td>
-                <td>21/07/05</td>
-                <td>Centro Medico</td>
-                <td>Tiempo completo</td>
-                <td>Santa Ana</td>
-              </tr>
-              <tr class="fila">
-                <td>Barista</td>
-                <td>26/07/22</td>
-                <td>Starbucks</td>
-                <td>Por hora</td>
-                <td>San Salvador</td>
-              </tr>
-              <tr class="fila">
-                <td>Programador Web</td>
-                <td>21/07/25</td>
-                <td>Qubebots</td>
-                <td>Medio tiempo</td>
-                <td>San Salvador</td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Ciudad, estado o remoto">
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-outline-primary w-100" data-bs-toggle="offcanvas" data-bs-target="#offcanvasFilters">
+            <i class="bi bi-funnel"></i> Filtros
+          </button>
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-primary w-100">Buscar</button>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    document.querySelectorAll(".fila").forEach(fila => {
-      fila.addEventListener("click", () => {
-        alert("Haz clic en una oferta de trabajo");
-      });
-    });
-  </script>
+  <!-- 📌 Resultados -->
+  <div class="container my-4">
+    <div class="row g-4">
+      
+      <!-- 12 tarjetas de ejemplo -->
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-success mb-2">Full-time</span><h6 class="fw-bold mb-1">Frontend Developer</h6><p class="small text-muted mb-2">Google Inc • Remoto</p><p class="small fw-semibold text-c1">$20,000 - $25,000</p></div></div></div>
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-warning mb-2">Internship</span><h6 class="fw-bold mb-1">UI/UX Designer</h6><p class="small text-muted mb-2">Spotify • Madrid</p><p class="small fw-semibold text-c1">$15,000 - $20,000</p></div></div></div>
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-info mb-2">Part-time</span><h6 class="fw-bold mb-1">Data Analyst</h6><p class="small text-muted mb-2">Microsoft • CDMX</p><p class="small fw-semibold text-c1">$18,000 - $22,000</p></div></div></div>
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-success mb-2">Full-time</span><h6 class="fw-bold mb-1">Backend Developer</h6><p class="small text-muted mb-2">Amazon • Berlín</p><p class="small fw-semibold text-c1">$25,000 - $30,000</p></div></div></div>
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-warning mb-2">Internship</span><h6 class="fw-bold mb-1">Marketing Assistant</h6><p class="small text-muted mb-2">Coca-Cola • Buenos Aires</p><p class="small fw-semibold text-c1">$10,000 - $15,000</p></div></div></div>
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-success mb-2">Full-time</span><h6 class="fw-bold mb-1">Project Manager</h6><p class="small text-muted mb-2">Tesla • Nueva York</p><p class="small fw-semibold text-c1">$30,000 - $40,000</p></div></div></div>
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-info mb-2">Part-time</span><h6 class="fw-bold mb-1">Community Manager</h6><p class="small text-muted mb-2">Meta • Bogotá</p><p class="small fw-semibold text-c1">$12,000 - $18,000</p></div></div></div>
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-success mb-2">Full-time</span><h6 class="fw-bold mb-1">Software Engineer</h6><p class="small text-muted mb-2">Apple • San Francisco</p><p class="small fw-semibold text-c1">$35,000 - $50,000</p></div></div></div>
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-warning mb-2">Internship</span><h6 class="fw-bold mb-1">Graphic Designer</h6><p class="small text-muted mb-2">Adobe • París</p><p class="small fw-semibold text-c1">$8,000 - $12,000</p></div></div></div>
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-info mb-2">Part-time</span><h6 class="fw-bold mb-1">Content Writer</h6><p class="small text-muted mb-2">LinkedIn • Lisboa</p><p class="small fw-semibold text-c1">$9,000 - $14,000</p></div></div></div>
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-success mb-2">Full-time</span><h6 class="fw-bold mb-1">Cybersecurity Analyst</h6><p class="small text-muted mb-2">IBM • Toronto</p><p class="small fw-semibold text-c1">$28,000 - $35,000</p></div></div></div>
+      <div class="col-md-3"><div class="card job-card"><div class="card-body"><span class="badge bg-success mb-2">Full-time</span><h6 class="fw-bold mb-1">DevOps Engineer</h6><p class="small text-muted mb-2">Oracle • Londres</p><p class="small fw-semibold text-c1">$32,000 - $45,000</p></div></div></div>
+
+    </div>
+
+    <!-- Paginación -->
+    <nav class="d-flex justify-content-center mt-4">
+      <ul class="pagination">
+        <li class="page-item disabled"><a class="page-link" href="#">«</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">»</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- 📌 Offcanvas Filtros -->
+<div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="offcanvasFilters">
+  <div class="offcanvas-header border-bottom">
+    <h5 class="offcanvas-title fw-bold text-c3">
+      <i class="bi bi-funnel me-2 text-c1"></i> Filtros avanzados
+    </h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <!-- Tipo de trabajo -->
+    <h6 class="section-title">Tipo de trabajo</h6>
+    <div class="form-check mb-2">
+      <input class="form-check-input" type="checkbox" id="fullTime">
+      <label class="form-check-label" for="fullTime">Tiempo completo</label>
+    </div>
+    <div class="form-check mb-2">
+      <input class="form-check-input" type="checkbox" id="partTime">
+      <label class="form-check-label" for="partTime">Medio tiempo</label>
+    </div>
+    <div class="form-check mb-3">
+      <input class="form-check-input" type="checkbox" id="remote">
+      <label class="form-check-label" for="remote">Remoto</label>
+    </div>
+
+    <hr>
+
+    <!-- Rango salarial -->
+    <h6 class="section-title">Rango salarial</h6>
+    <input type="range" class="form-range mb-2" min="5000" max="50000" step="1000">
+    <div class="d-flex justify-content-between small text-muted">
+      <span>$5,000</span>
+      <span>$50,000</span>
+    </div>
+
+    <hr>
+
+    <!-- Modalidad -->
+    <h6 class="section-title">Modalidad</h6>
+    <select class="form-select mb-3">
+      <option>Todos</option>
+      <option>Presencial</option>
+      <option>Remoto</option>
+      <option>Híbrido</option>
+    </select>
+
+    <hr>
+
+    <!-- Botones -->
+    <div class="d-flex gap-2">
+      <button class="btn btn-outline-primary w-50">Restablecer</button>
+      <button class="btn btn-primary w-50">Aplicar</button>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
