@@ -8,6 +8,14 @@
   --bg-page: #f6f7f9;
   --border-soft: #e8ebf0;
 }
+:root {
+    --jp-primary: #00BFB3;
+    --jp-secondary: #037971;
+    --jp-dark: #023436;
+    --jp-detail: #049A8F;
+    --jp-red-alert: #049A8F; /* Color similar al de la alerta en la imagen */
+    --jp-light-bg: #F8F9FA; /* Fondo general más claro */
+}
 
 body {
   background-color: var(--bg-page);
@@ -71,4 +79,31 @@ body {
 }
 .footer a:hover {
   color: #fff;
+}
+
+/* --- Barra de Navegación Superior --- */
+.custom-navbar-top {
+    background-color: white;
+}
+
+.custom-icon-color {
+    color: var(--jp-primary);
+}
+
+.custom-navbar-links .nav-link {
+    color: #6c757d; /* Gris para enlaces no activos */
+    font-weight: 500;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.custom-navbar-links .nav-link.active {
+    color: var(--jp-primary);
+    border-bottom: 3px solid var(--jp-primary);
+}
+
+.custom-avatar-sm {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
 }

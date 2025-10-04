@@ -1,201 +1,191 @@
-/* === PALETA DEL PROYECTO === */
+/* Definición de variables de color (Formal y Corporativo) */
 :root {
-  --c1: #03B5AA; 
-  --c2: #037971; 
-  --c3: #023436; 
-  --c4: #00BFB3; 
-  --c5: #049A8F; 
-  --sidebar-width: 250px;
-  --bg-page: #f6f7f9;
-  --border-soft: #e8ebf0;
+    --c1: #03B5AA; /* Principal/Énfasis - Turquesa Oscuro */
+    --c2: #037971; /* Hover / Oscuro */
+    --c3: #023436; /* Texto/Fondo Muy Oscuro (Azul/Gris) */
+    --c4: #00BFB3; /* Turquesa Claro */
+    --c5: #049A8F; /* Intermedio */
+    --sidebar-width: 250px;
+    --bg-page: #f6f7f9; /* Fondo de la página */
+    --border-soft: #e8ebf0; /* Borde suave */
+    --link-active-bg: #EAF7F6; /* Fondo muy claro para elementos activos/hover */
+}
+
+body {
+    background-color: var(--bg-page);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 56px; /* Espacio para el header fijo de HireHub */
+}
+
+/* --- ESTILOS DEL HEADER SUPERIOR (HireHub) --- */
+.custom-navbar-top {
+    background-color: #fff; /* Fondo blanco */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+
+.custom-icon-color {
+    color: var(--c1); /* Ícono de la maleta: Turquesa Oscuro (--c1) */
+}
+
+.custom-navbar-links .nav-link {
+    color: #555;
+    transition: color 0.2s, border-bottom 0.2s;
+}
+
+.custom-navbar-links .nav-link:hover {
+    color: var(--c1) !important;
+}
+
+.custom-navbar-links .nav-link.active {
+    color: var(--c1) !important; /* Enlace activo: Turquesa Oscuro (--c1) */
+    font-weight: bold;
+    border-bottom: 2px solid var(--c1);
+}
+
+.custom-avatar-sm {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+}
+
+/* --- BARRA DE DISCUSIÓN Y BOTÓN (WorkHub - Reubicados en main) --- */
+
+.btn-iniciar-disc {
+    background-color: var(--c1); /* Botón: Turquesa Oscuro (--c1) */
+    border-color: var(--c1);
+    color: #fff; /* Texto blanco */
+    font-weight: 600;
+}
+.btn-iniciar-disc:hover {
+    background-color: var(--c2); /* Hover: Turquesa más oscuro (--c2) */
+    border-color: var(--c2);
+}
+
+/* --- Sidebar --- */
+.sidebar-menu {
+    width: var(--sidebar-width);
+    background-color: #fff;
+    border-right: 1px solid var(--border-soft);
+    position: sticky;
+    top: 56px; /* Se pega justo debajo del header HireHub */
+    height: calc(100vh - 56px); /* Altura ajustada */
+    overflow-y: auto;
+}
+
+.menu-heading {
+    color: #999;
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.sidebar-nav .nav-link {
+    color: #555;
+    padding: 0.75rem 1rem;
+    margin: 0;
+    border-radius: 0;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+/* ESTILO CLAVE DEL MENU ACTIVO (Preguntas) */
+.sidebar-nav .nav-link.active {
+    background-color: var(--link-active-bg); /* Fondo activo: Turquesa muy pálido */
+    color: var(--c3); /* Texto oscuro (--c3) */
+    font-weight: bold;
+    border-left: 5px solid var(--c1); /* Borde: Turquesa Oscuro (--c1) */
+    /* Ajuste para que el borde inicie en el margen */
+    margin-left: -1rem; 
+    padding-left: calc(1rem - 5px); 
+}
+.sidebar-nav .nav-link:not(.active):hover {
+    background-color: var(--bg-page);
+}
+
+.social-icons a {
+    color: var(--c1); /* Iconos sociales en color principal */
+    font-size: 1.5rem;
 }
 
 
-.workhub-container {
-  min-height: 100vh;
-  display: flex;
-  overflow: hidden;
-  background: var(--bg-page);
-  color: var(--c3);
+/* --- Área Central y Filtros de Temas --- */
+
+.main-forum-area {
+    background-color: #fff; /* Fondo blanco para el área principal de foros */
 }
 
-.workhub-sidebar {
-  width: var(--sidebar-width);
-  background: #fff;
-  border-right: 2px solid var(--border-soft);
-  display: flex;
-  flex-direction: column;
+.topic-filters .badge {
+    padding: 0.6em 1em;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: capitalize;
 }
 
-.workhub-main {
-  flex: 1;
-  overflow-y: auto;
-  background: var(--bg-page);
+.topic-filters .text-bg-primary {
+    background-color: var(--c1) !important; /* "Nuevos": Turquesa Oscuro (--c1) */
+    color: #fff !important;
 }
 
-
-.workhub-sidebar .nav-link {
-  color: var(--c3);
-  border-radius: 8px;
-  padding: 8px 12px;
+.topic-filters .text-bg-warning {
+    background-color: #A9A9A9 !important; /* "Top": Gris neutro */
+    color: #fff !important; 
 }
 
-.workhub-sidebar .nav-link:hover {
-  background: rgba(3, 185, 170, 0.08); 
-  color: var(--c2);
+.topic-filters .text-bg-danger {
+    background-color: #ff6347 !important; /* "Calientes" */
 }
 
-.workhub-sidebar .nav-link.active {
-  background: var(--c4);
-  color: #fff;
-  font-weight: 700;
+/* Tarjeta de Tema */
+.topic-card {
+    border: 1px solid var(--border-soft);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+.topic-card:hover {
+    border-color: var(--c1); /* Borde hover con el color principal */
 }
 
-.workhub-sidebar .sidebar-title {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: .4px;
-  color: #7a8794;
-  text-transform: uppercase;
+.topic-stats span {
+    font-size: 0.9rem;
 }
 
-.workhub-sidebar .sidebar-social a {
-  color: var(--c3);
-  font-size: 18px;
+.tag-badge {
+    /* Fondo muy claro, el turquesa (c1) para el texto */
+    background-color: rgba(3, 181, 170, 0.1); /* Fondo: c1 con 10% de opacidad */
+    color: var(--c1); /* Texto: Turquesa Oscuro (--c1) */
+    padding: 0.2rem 0.6rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 5px;
 }
 
-.main-header {
-  background: var(--c1) !important;
-  box-shadow: 0 1px 0 var(--border-soft);
+/* --- Columna Derecha (Recomendados/Links) --- */
+.right-sidebar {
+    background-color: var(--bg-page); /* Fondo diferente para la sidebar derecha */
 }
 
-.main-header h5 {
-  color: #fff;
+.recommended-card .card-header, .links-card .card-header {
+    background-color: var(--link-active-bg); /* Fondo de encabezados */
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--c3);
+    font-weight: bold;
 }
 
-.main-header .btn-discussion {
-  background: var(--c4);
-  color: #fff;
-  border: 1px solid var(--c4);
-  border-radius: 999px;
-  padding: 6px 16px;
-  font-weight: 700;
+.recommended-card .list-group-item i, .links-card .list-group-item i {
+    color: var(--c1); /* Iconos de flecha: Turquesa Oscuro (--c1) */
 }
 
-.main-header .btn-discussion:hover {
-  background: var(--c5);
-  border-color: var(--c5);
-}
-
-.main-header .btn-bell {
-  background: #fff;
-  color: var(--c1);
-  border: 1px solid #fff;
-  width: 36px;
-  height: 36px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-}
-
-.header-profile img {
-  border: 2px solid #fff;
-}
-
-.discussion-filters .btn {
-  border-radius: 999px;
-  font-weight: 700;
-  padding: 4px 14px;
-}
-
-.workhub-container .btn.btn-primary {
-  background: var(--c1);
-  border-color: var(--c1);
-  color: #fff;
-}
-
-.workhub-container .btn.btn-primary:hover {
-  background: var(--c2);
-  border-color: var(--c2);
-}
-
-.workhub-container .btn.btn-warning {
-  background: var(--c4);
-  border-color: var(--c4);
-  color: #fff;
-}
-
-.workhub-container .btn.btn-warning:hover {
-  background: var(--c5);
-  border-color: var(--c5);
-  color: #fff;
-}
-
-.workhub-main .card {
-  border: 2px solid var(--c4);
-  border-radius: 12px;
-  box-shadow: 0 1px 0 rgba(0,0,0,.02);
-}
-
-.workhub-main .card-body h6.fw-bold {
-  font-size: 16px;
-}
-
-.workhub-main .badge {
-  background: var(--c4);
-  color: #fff;
-  margin-right: 6px;
-  border-radius: 6px;
-  font-size: 12px;
-  padding: 6px 10px;
-  font-weight: 700;
-}
-
-.workhub-main .meta {
-  color: #81909d;
-  font-weight: 500;
-}
-
-.workhub-main .card.border-warning {
-  border: 2px solid var(--c4) !important;
-}
-
-.workhub-main .card-body h6 {
-  font-size: 15px;
-  margin-bottom: 10px;
-  color: var(--c3);
-}
-
-.workhub-main .card-body ul {
-  margin: 0;
-  padding-left: 0;
-}
-
-.workhub-main .card-body ul li {
-  list-style: none;
-  margin: 8px 0;
-}
-
-.workhub-main .card-body ul li a {
-  color: var(--c5);
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.workhub-main .card-body ul li a:hover {
-  text-decoration: underline;
-}
-
-.text-primary,
-a.text-primary {
-  color: var(--c5) !important;
-}
-
-.border-warning {
-  border-color: var(--c4) !important;
-}
-
-.bg-primary {
-  background-color: var(--c1) !important;
+/* --- Footer --- */
+.footer {
+    background-color: #fff;
+    border-top: 1px solid var(--border-soft);
+    margin-top: auto; /* Empuja el footer hacia abajo */
 }
