@@ -1,39 +1,269 @@
+/* -------------------------------------------------------------------------- */
+/* VARIABLES - Adaptadas a la nueva paleta (Verde Aguamarina y Oscuros) */
+/* -------------------------------------------------------------------------- */
 
 :root {
-  --c1: #03B5AA;
-  --c2: #037971;
-  --c3: #023436;
-  --c4: #00BFB3;
-  --c5: #049A8F;
+    --primary-color: #00BFB3; /* Verde Aguamarina principal (Botones, activos, iconos) */
+    --primary-dark: #037971; /* Verde Pino (Hover y acentos) */
+    --secondary-color: #6c757d; /* Gris para textos secundarios */
+    --light-bg: #f8f9fa; /* Fondo principal muy claro (Fondo de la página) */
+    --card-bg: #ffffff; /* Fondo de las tarjetas y navbar */
+    --dark-bg: #023436; /* Verde Medianoche para elementos oscuros opcionales */
+    --border-color: #e9ecef;
+}
+
+/* -------------------------------------------------------------------------- */
+/* GLOBAL STYLES                                 */
+/* -------------------------------------------------------------------------- */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* -------------------------------------------------------------------------- */
+/* NAVBAR                                    */
+/* -------------------------------------------------------------------------- */
+
+.custom-navbar-top {
+    background-color: var(--card-bg);
+    padding: 0.75rem 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.custom-icon-color {
+    color: var(--primary-color);
+}
+
+.custom-avatar-sm {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.custom-navbar-links .nav-link {
+    color: #343a40;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.custom-navbar-links .nav-link:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-dark);
+}
+
+.custom-navbar-links .nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+    position: relative;
+}
+
+/* Indicador de página activa en el navbar */
+.custom-navbar-links .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* SIDEBAR                                   */
+/* -------------------------------------------------------------------------- */
+
+.custom-sidebar {
+    background-color: var(--card-bg);
+    height: calc(100vh - 65px); /* Ajusta al alto de la pantalla menos el navbar */
+    position: sticky;
+    top: 65px; /* Altura del navbar */
+    border-right: 1px solid var(--border-color);
+}
+
+.custom-sidebar-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: #495057 !important;
+}
+
+.custom-sidebar-nav .nav-link {
+    color: var(--secondary-color);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.custom-sidebar-nav .nav-link i {
+    font-size: 1.1rem;
+}
+
+.custom-sidebar-nav .nav-link:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-dark);
+}
+
+.custom-sidebar-nav .nav-link.active {
+    background-color: var(--primary-color);
+    color: var(--card-bg) !important;
+    font-weight: 600;
+    /* Usamos un color de sombra basado en el primary-color */
+    box-shadow: 0 4px 6px rgba(0, 191, 179, 0.3);
+}
+
+.custom-badge-red {
+    font-size: 0.65rem;
+    padding: 0.3em 0.6em;
+}
+
+/* -------------------------------------------------------------------------- */
+/* CONTENIDO PRINCIPAL (MAIN)                             */
+/* -------------------------------------------------------------------------- */
+
+.custom-main-content {
+    flex-grow: 1;
+}
+
+.custom-main-bg {
+    background-color: var(--light-bg);
+}
+
+.custom-page-title {
+    color: #212529;
+}
+
+/* -------------------------------------------------------------------------- */
+/* SECCIÓN PERFIL                                */
+/* -------------------------------------------------------------------------- */
+
+.custom-profile-card {
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--card-bg);
+    overflow: hidden;
+}
+
+.custom-avatar-xl {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.custom-border-primary {
+    border-color: var(--primary-color) !important;
+}
+
+.custom-text-primary {
+    color: var(--primary-color) !important;
+}
+
+.custom-btn-primary {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    font-weight: 500;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.custom-btn-primary:hover {
+    background-color: var(--primary-dark);
+    color: var(--card-bg);
+    /* Usamos un color de sombra basado en el primary-dark */
+    box-shadow: 0 4px 8px rgba(3, 121, 113, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* SECCIONES DE DETALLE (ACERCA DE)                          */
+/* -------------------------------------------------------------------------- */
+
+.custom-detail-card {
+    border: 1px solid var(--border-color);
+    border-radius: 1rem;
+}
+
+.custom-detail-card .card-header {
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1.1rem;
+    background-color: #f4f6f8 !important; /* Un gris muy suave para el encabezado */
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.custom-contact-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed var(--border-color);
+    color: #495057;
+}
+
+.custom-contact-list li:last-child {
+    border-bottom: none;
+}
+
+/* Tarjeta de CV/Resume - Ahora usa el color Primary Dark para ser más sutil */
+.custom-resume-card {
+    background-color: var(--primary-dark);
+    color: var(--card-bg);
+    border: none;
+}
+
+.custom-resume-card .card-body {
+    padding: 2rem;
+}
+
+.custom-resume-card .custom-text-primary {
+    color: var(--card-bg) !important; /* Sobreescribe el color del icono a blanco */
+}
+
+.custom-btn-secondary {
+    background-color: var(--card-bg);
+    color: var(--primary-dark); /* Color del texto del botón secundario */
+    border: 2px solid var(--card-bg);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.custom-btn-secondary:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-dark);
+    border-color: var(--light-bg);
+}
+
+/* Badges de Habilidades */
+.custom-badge-skill {
+    background-color: var(--light-bg);
+    color: #495057;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
 }
 
 
-.bg-custom {
-  background-color: var(--c1);
+/* -------------------------------------------------------------------------- */
+/* FOOTER                                    */
+/* -------------------------------------------------------------------------- */
+
+.custom-footer {
+    background-color: var(--card-bg);
+    color: var(--secondary-color);
 }
 
-
-.bg-highlight {
-  background-color: var(--c4) !important;
+/* Media Query para responsividad (Asegura que el sidebar se oculte en móvil) */
+@media (max-width: 767.98px) {
+    .custom-sidebar {
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
 }
-
-
-.active-item {
-  background-color: var(--c4);
-  color: white;
-  font-weight: bold;
-  border-radius: 6px;
-}
-
-.btn-save {
-  background-color: var(--c2);
-  color: #fff;
-  font-weight: bold;
-  border-radius: 6px;
-  padding: 0.6rem 1.2rem;
-}
-
-.btn-save:hover {
-  background-color: var(--c3);
-}
-
