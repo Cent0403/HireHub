@@ -9,6 +9,15 @@
   --border-soft: #e8ebf0;
 }
 
+:root {
+    --jp-primary: #00BFB3;
+    --jp-secondary: #037971;
+    --jp-dark: #023436;
+    --jp-detail: #049A8F;
+    --jp-red-alert: #049A8F; /* Color similar al de la alerta en la imagen */
+    --jp-light-bg: #F8F9FA; /* Fondo general más claro */
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-page);
@@ -136,27 +145,7 @@ p, li, span {
   border-color: var(--c1) !important;
 }
 
-/* === NAVBAR STYLES (coherente con tu ejemplo) === */
-.navbar {
-  border-bottom: 1px solid var(--border-soft);
-  background: #fff;
-}
 
-.navbar .nav-link {
-  font-weight: 500;
-  color: var(--c3);
-  transition: color 0.3s;
-}
-
-.navbar .nav-link.active,
-.navbar .nav-link:hover {
-  color: var(--c1);
-}
-
-.navbar-brand {
-  font-size: 1.25rem;
-  color: var(--c2) !important;
-}
 
 /* dropdowns */
 .dropdown-menu {
@@ -204,18 +193,7 @@ p, li, span {
   flex: 1;
 }
 
-/* Responsive adjustments */
-@media (max-width: 991px) {
-  .employer-header {
-    flex-direction: column;
-    text-align: center;
-  }
-  .company-info ul li strong {
-    min-width: 0;
-    display: block;
-    margin-bottom: .25rem;
-  }
-}
+
 
 /* Footer (coherente con la paleta) */
 .footer {
@@ -231,4 +209,31 @@ p, li, span {
 }
 .footer a:hover {
   text-decoration: underline;
+}
+
+/* --- Barra de Navegación Superior --- */
+.custom-navbar-top {
+    background-color: white;
+}
+
+.custom-icon-color {
+    color: var(--jp-primary);
+}
+
+.custom-navbar-links .nav-link {
+    color: #6c757d; /* Gris para enlaces no activos */
+    font-weight: 500;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.custom-navbar-links .nav-link.active {
+    color: var(--jp-primary);
+    border-bottom: 3px solid var(--jp-primary);
+}
+
+.custom-avatar-sm {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
 }

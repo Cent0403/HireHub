@@ -15,22 +15,33 @@
 <body>
 
   <!-- 🔝 Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
-    <div class="container">
-      <a class="navbar-brand fw-bold text-c1" href="#">HireHub</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Empleadores</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Alertas</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Soporte</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <nav class="navbar navbar-expand-lg navbar-light border-bottom custom-navbar-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-briefcase-fill me-2 fs-4 custom-icon-color"></i>
+                <span class="fw-bold fs-5 text-dark">HireHub</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 custom-navbar-links">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Find Job</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Find Employers</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Customer Supports</a></li>
+                </ul>
+            </div>
+            
+            <div class="d-flex align-items-center">
+                <span class="me-3 fw-bold text-dark">+503 1234123</span>
+                <i class="bi bi-globe me-1"></i>
+                <select class="form-select form-select-sm border-0 me-3" aria-label="Language select">
+                    <option selected>English</option>
+                </select>
+                <i class="bi bi-search me-3"></i>
+                <img src="https://i.pravatar.cc/300?img=60" alt="Avatar" class="rounded-circle custom-avatar-sm">
+            </div>
+        </div>
+    </nav>
 
   <!-- 🔍 Barra búsqueda -->
   <div class="search-bar py-4 border-bottom">

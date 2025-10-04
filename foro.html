@@ -1,165 +1,301 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WorkHub - Temas de Discusión</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/style/foro.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkHub - Temas de Discusión</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="/HireHub/style/foro.css">
 </head>
 <body>
-  <div class="d-flex workhub-container">
-    
-    <aside class="bg-white border-end workhub-sidebar p-3">
-      <div class="d-flex align-items-center mb-4">
-        <img src="logo.png" alt="Job Portal Logo" class="me-2" width="40">
-        <h5 class="mb-0 fw-bold">WorkHub</h5>
-      </div>
 
-      <p class="text-uppercase small fw-bold text-secondary">Menu</p>
-      <ul class="nav flex-column mb-4">
-        <li class="nav-item">
-          <a href="#" class="nav-link active  fw-bold text-dark rounded"><i class="bi bi-list me-2"></i> Preguntas</a>
-        </li>
-        <li class="nav-item"><a href="#" class="nav-link text-dark"><i class="bi bi-tag me-2"></i> Etiquetas</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-dark"><i class="bi bi-star me-2"></i> Ranking</a></li>
-      </ul>
-
-      <p class="text-uppercase small fw-bold text-secondary">Personal Navigator</p>
-      <ul class="nav flex-column mb-4">
-        <li class="nav-item"><a href="#" class="nav-link text-dark"><i class="bi bi-question-circle me-2"></i> Tus Preguntas</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-dark"><i class="bi bi-chat-dots me-2"></i> Tus Respuestas</a></li>
-        <li class="nav-item"><a href="#" class="nav-link text-dark"><i class="bi bi-heart me-2"></i> Tus Likes</a></li>
-      </ul>
-
-      <div class="d-flex gap-3 mt-auto">
-        <a href="#"><i class="bi bi-hand-thumbs-up"></i></a>
-        <a href="#"><i class="bi bi-instagram"></i></a>
-        <a href="#"><i class="bi bi-facebook"></i></a>
-      </div>
-    </aside>
-
-    <main class="flex-grow-1 workhub-main">
-      
-      <header class="d-flex justify-content-between align-items-center px-4 py-3 bg-primary text-white">
-        <h5 class="mb-0 fw-bold">Temas De Discusion</h5>
-        <div class="d-flex align-items-center gap-3">
-          <button class="btn btn-warning fw-bold">Iniciar una Discusion</button>
-          <button class="btn btn-light rounded-circle"><i class="bi bi-bell"></i></button>
-          <img src="user.jpg" alt="User" class="rounded-circle" width="40" height="40">
-        </div>
-      </header>
-
-      <div class="container-fluid py-4">
-        <div class="row">
-          
-          <div class="col-lg-8">
-            <div class="mb-4">
-              <button class="btn btn-primary me-2">Nuevos</button>
-              <button class="btn btn-warning me-2">Top</button>
-              <button class="btn btn-warning me-2">Calientes</button>
-              <button class="btn btn-warning">Cerrados</button>
-            </div>
-
-            <div class="card mb-3 border-warning">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img src="avatar1.jpg" class="rounded-circle me-2" width="40" height="40">
-                  <div>
-                    <h6 class="mb-0 fw-bold">Golanginya</h6>
-                    <small class="text-muted">5 min ago</small>
-                  </div>
-                </div>
-                <h6 class="fw-bold">Mejores trabajos en EL Salvador</h6>
-                <p class="mb-2">Alguien me podria ayudar a decidir que trabajos tomar en el pais?</p>
-                <div class="mb-2">
-                  <span class="badge  text-dark">Mejores</span>
-                  <span class="badge  text-dark">Trabajos</span>
-                  <span class="badge  text-dark">El Salvador</span>
-                </div>
-                <div class="d-flex gap-3 text-muted">
-                  <span><i class="bi bi-eye"></i> 125</span>
-                  <span><i class="bi bi-chat"></i> 15</span>
-                  <span><i class="bi bi-hand-thumbs-up"></i> 155</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="card mb-3 border-warning">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img src="avatar2.jpg" class="rounded-circle me-2" width="40" height="40">
-                  <div>
-                    <h6 class="mb-0 fw-bold">Linuxoid</h6>
-                    <small class="text-muted">25 min ago</small>
-                  </div>
-                </div>
-                <h6 class="fw-bold">Alguien sabe como conseguir trabajo en el extranjero?</h6>
-                <p class="mb-2">Quiero conseguir un trabajo mejor pagado , pero necesito ayuda...</p>
-                <div class="mb-2">
-                  <span class="badge  text-dark">java</span>
-                  <span class="badge  text-dark">internacional</span>
-                  <span class="badge  text-dark">ayuda</span>
-                </div>
-                <div class="d-flex gap-3 text-muted">
-                  <span><i class="bi bi-eye"></i> 125</span>
-                  <span><i class="bi bi-chat"></i> 15</span>
-                  <span><i class="bi bi-hand-thumbs-up"></i> 155</span>
-                </div>
-              </div>
-            </div>
-
-           
-            <div class="card mb-3 border-warning">
-              <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                  <img src="avatar3.jpg" class="rounded-circle me-2" width="40" height="40">
-                  <div>
-                    <h6 class="mb-0 fw-bold">AizhanMaratovna</h6>
-                    <small class="text-muted">2 days ago</small>
-                  </div>
-                </div>
-                <h6 class="fw-bold">Aqui se consiguen pasantías?</h6>
-                <p class="mb-2">Estoy a punto de graduarme de la universidad y necesito hacer una pasantía para hacerlo.</p>
-                <div class="mb-2">
-                  <span class="badge  text-dark">pasante</span>
-                  <span class="badge  text-dark">ayuda</span>
-                  <span class="badge  text-dark">recomendaciones</span>
-                </div>
-                <div class="d-flex gap-3 text-muted">
-                  <span><i class="bi bi-eye"></i> 125</span>
-                  <span><i class="bi bi-chat"></i> 15</span>
-                  <span><i class="bi bi-hand-thumbs-up"></i> 155</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          
-          <div class="col-lg-4">
-            <div class="card border-warning mb-3">
-              <div class="card-body">
-                <h6 class="fw-bold">⭐ Recomendados</h6>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="text-primary">Por favor leer las reglas y recomendaciones</a></li>
-                  <li><a href="#" class="text-primary">Vision y Estrategia de trabajo</a></li>
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom custom-navbar-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-briefcase-fill me-2 fs-4 custom-icon-color"></i>
+                <span class="fw-bold fs-5 text-dark">HireHub</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 custom-navbar-links">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Find Job</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Find Employers</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Forums</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Customer Supports</a></li>
                 </ul>
-                <h6 class="fw-bold mt-3">🔗 Links</h6>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="text-primary">Trabajos nuevos</a></li>
-                  <li><a href="#" class="text-primary">Mejores practicas de trabajo</a></li>
-                  <li><a href="#" class="text-primary">Lluvia de ideas</a></li>
-                </ul>
-              </div>
             </div>
-          </div>
-
+            
+            <div class="d-flex align-items-center">
+                <span class="me-3 fw-bold text-dark d-none d-lg-block">+503 1234123</span>
+                <i class="bi bi-globe me-1 text-muted d-none d-lg-block"></i>
+                <select class="form-select form-select-sm border-0 me-3 d-none d-lg-block" aria-label="Language select">
+                    <option selected>English</option>
+                </select>
+                <i class="bi bi-search me-3 text-muted"></i>
+                <img src="https://i.pravatar.cc/300?img=60" alt="Avatar" class="rounded-circle custom-avatar-sm">
+            </div>
         </div>
-      </div>
-    </main>
-  </div>
+    </nav>
+    <div class="main-content-wrapper">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <aside class="col-lg-2 sidebar-menu">
+                    <div class="p-3">
+                        <div class="mb-4">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Buscar">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            </div>
+                        </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                        <p class="menu-heading">MENU</p>
+                        <nav class="nav flex-column sidebar-nav">
+                            <a class="nav-link active" href="#"><i class="fas fa-question-circle me-2"></i> Preguntas</a>
+                            <a class="nav-link" href="#"><i class="fas fa-tags me-2"></i> Etiquetas</a>
+                            <a class="nav-link" href="#"><i class="fas fa-medal me-2"></i> Ranking</a>
+                        </nav>
+
+                        <p class="menu-heading mt-4">PERSONAL NAVIGATOR</p>
+                        <nav class="nav flex-column sidebar-nav">
+                            <a class="nav-link" href="#"><i class="fas fa-list-alt me-2"></i> Tus Preguntas</a>
+                            <a class="nav-link" href="#"><i class="fas fa-reply-all me-2"></i> Tus Respuestas</a>
+                            <a class="nav-link" href="#"><i class="fas fa-heart me-2"></i> Tus likes</a>
+                        </nav>
+                        
+                        <div class="social-icons d-flex justify-content-start mt-5 pt-5">
+                            <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="me-3"><i class="fab fa-github"></i></a>
+                            <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+                </aside>
+
+                <main class="col-lg-7 main-forum-area p-4">
+
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="h5 m-0 text-dark">Temas de Discusión</h2>
+                        <button class="btn btn-primary btn-iniciar-disc">
+                            <i class="fas fa-plus-circle me-1"></i> Iniciar una Discusión
+                        </button>
+                    </div>
+
+                    <div class="d-flex mb-4 topic-filters">
+                        <span class="badge text-bg-primary me-2">Nuevos</span>
+                        <span class="badge text-bg-warning me-2">Top</span>
+                        <span class="badge text-bg-danger me-2">Calientes</span>
+                        <span class="badge text-bg-secondary">Cerrados</span>
+                    </div>
+
+                    <div class="topic-list">
+                        <div class="card topic-card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start">
+                                    <img src="https://i.pravatar.cc/50?img=1" class="rounded-circle avatar me-3" alt="Golanginya">
+                                    <div>
+                                        <h6 class="mb-0 topic-user">Golanginya <span class="text-muted small">5 min ago</span></h6>
+                                        <h5 class="card-title mt-1 mb-2">Mejores trabajos en El Salvador</h5>
+                                        <p class="card-text text-muted small">Alguien me podría ayudar a decidir qué trabajos tomar en el país?</p>
+                                        <div class="topic-tags d-flex">
+                                            <span class="tag-badge me-2">Mejores</span>
+                                            <span class="tag-badge me-2">Trabajos</span>
+                                            <span class="tag-badge me-2">El Salvador</span>
+                                        </div>
+                                    </div>
+                                    <div class="ms-auto text-end topic-stats">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-link text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></button>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-end mt-2">
+                                            <span class="me-3 text-muted"><i class="fas fa-comment-alt me-1"></i> 125</span>
+                                            <span class="me-3 text-muted"><i class="fas fa-thumbs-up me-1"></i> 15</span>
+                                            <span class="text-muted"><i class="fas fa-eye me-1"></i> 155</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card topic-card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start">
+                                    <img src="https://i.pravatar.cc/50?img=2" class="rounded-circle avatar me-3" alt="Linuxoid">
+                                    <div>
+                                        <h6 class="mb-0 topic-user">Linuxoid <span class="text-muted small">25 min ago</span></h6>
+                                        <h5 class="card-title mt-1 mb-2">Alguien sabe como conseguir trabajo en el extranjero?</h5>
+                                        <p class="card-text text-muted small">Quiero conseguir un trabajo mejor pagado, pero necesito ayuda con los visados...</p>
+                                        <div class="topic-tags d-flex">
+                                            <span class="tag-badge me-2">Java</span>
+                                            <span class="tag-badge me-2">Internacional</span>
+                                            <span class="tag-badge me-2">ayuda</span>
+                                        </div>
+                                    </div>
+                                    <div class="ms-auto text-end topic-stats">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-link text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></button>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-end mt-2">
+                                            <span class="me-3 text-muted"><i class="fas fa-comment-alt me-1"></i> 58</span>
+                                            <span class="me-3 text-muted"><i class="fas fa-thumbs-up me-1"></i> 45</span>
+                                            <span class="text-muted"><i class="fas fa-eye me-1"></i> 320</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card topic-card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start">
+                                    <img src="https://i.pravatar.cc/50?img=3" class="rounded-circle avatar me-3" alt="AizhanMaratovna">
+                                    <div>
+                                        <h6 class="mb-0 topic-user">AizhanMaratovna <span class="text-muted small">2 days ago</span></h6>
+                                        <h5 class="card-title mt-1 mb-2">Aquí se consiguen pasantías?</h5>
+                                        <p class="card-text text-muted small">Estoy a punto de graduarme de la universidad y necesito hacer una pasantía para obtener mi título.</p>
+                                        <div class="topic-tags d-flex">
+                                            <span class="tag-badge me-2">pasantía</span>
+                                            <span class="tag-badge me-2">ayuda</span>
+                                            <span class="tag-badge me-2">recomendaciones</span>
+                                        </div>
+                                    </div>
+                                    <div class="ms-auto text-end topic-stats">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-link text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></button>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-end mt-2">
+                                            <span class="me-3 text-muted"><i class="fas fa-comment-alt me-1"></i> 10</span>
+                                            <span class="me-3 text-muted"><i class="fas fa-thumbs-up me-1"></i> 2</span>
+                                            <span class="text-muted"><i class="fas fa-eye me-1"></i> 65</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card topic-card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start">
+                                    <img src="https://i.pravatar.cc/50?img=4" class="rounded-circle avatar me-3" alt="JobHunter24">
+                                    <div>
+                                        <h6 class="mb-0 topic-user">JobHunter24 <span class="text-muted small">1 hour ago</span></h6>
+                                        <h5 class="card-title mt-1 mb-2">¿Qué tan importante es el networking en el sector IT?</h5>
+                                        <p class="card-text text-muted small">Estoy empezando mi carrera y no sé si invertir tiempo en eventos de networking.</p>
+                                        <div class="topic-tags d-flex">
+                                            <span class="tag-badge me-2">IT</span>
+                                            <span class="tag-badge me-2">networking</span>
+                                            <span class="tag-badge me-2">carrera</span>
+                                        </div>
+                                    </div>
+                                    <div class="ms-auto text-end topic-stats">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-link text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></button>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-end mt-2">
+                                            <span class="me-3 text-muted"><i class="fas fa-comment-alt me-1"></i> 78</span>
+                                            <span class="me-3 text-muted"><i class="fas fa-thumbs-up me-1"></i> 90</span>
+                                            <span class="text-muted"><i class="fas fa-eye me-1"></i> 510</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card topic-card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start">
+                                    <img src="https://i.pravatar.cc/50?img=5" class="rounded-circle avatar me-3" alt="FutureCEO">
+                                    <div>
+                                        <h6 class="mb-0 topic-user">FutureCEO <span class="text-muted small">4 hours ago</span></h6>
+                                        <h5 class="card-title mt-1 mb-2">Recomendaciones de cursos online sobre Liderazgo y Gestión de equipos</h5>
+                                        <p class="card-text text-muted small">Quiero ascender a un rol de gerencia. ¿Qué plataformas o cursos valen la pena?</p>
+                                        <div class="topic-tags d-flex">
+                                            <span class="tag-badge me-2">liderazgo</span>
+                                            <span class="tag-badge me-2">cursos</span>
+                                            <span class="tag-badge me-2">gerencia</span>
+                                        </div>
+                                    </div>
+                                    <div class="ms-auto text-end topic-stats">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-link text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></button>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-end mt-2">
+                                            <span class="me-3 text-muted"><i class="fas fa-comment-alt me-1"></i> 25</span>
+                                            <span class="me-3 text-muted"><i class="fas fa-thumbs-up me-1"></i> 32</span>
+                                            <span class="text-muted"><i class="fas fa-eye me-1"></i> 210</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card topic-card mb-3">
+                            <div class="card-body">
+                                <div class="d-flex align-items-start">
+                                    <img src="https://i.pravatar.cc/50?img=6" class="rounded-circle avatar me-3" alt="MarketingPro">
+                                    <div>
+                                        <h6 class="mb-0 topic-user">MarketingPro <span class="text-muted small">1 day ago</span></h6>
+                                        <h5 class="card-title mt-1 mb-2">Salarios promedio para un Social Media Manager Junior en Latam</h5>
+                                        <p class="card-text text-muted small">Buscando rangos salariales para negociar mi primer trabajo en mercadeo digital.</p>
+                                        <div class="topic-tags d-flex">
+                                            <span class="tag-badge me-2">salarios</span>
+                                            <span class="tag-badge me-2">mercadeo</span>
+                                            <span class="tag-badge me-2">Latam</span>
+                                        </div>
+                                    </div>
+                                    <div class="ms-auto text-end topic-stats">
+                                        <div class="dropdown">
+                                            <button class="btn btn-sm btn-link text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-v"></i></button>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-end mt-2">
+                                            <span class="me-3 text-muted"><i class="fas fa-comment-alt me-1"></i> 150</span>
+                                            <span class="me-3 text-muted"><i class="fas fa-thumbs-up me-1"></i> 70</span>
+                                            <span class="text-muted"><i class="fas fa-eye me-1"></i> 950</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </main>
+
+                <aside class="col-lg-3 right-sidebar p-4 border-start">
+                    <div class="card recommended-card mb-4">
+                        <div class="card-header text-center">
+                            <h5 class="mb-0"><i class="fas fa-star text-warning me-1"></i> Recomendados</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-chevron-right me-2 text-primary"></i> Por favor leer las reglas y recomendaciones</li>
+                            <li class="list-group-item"><i class="fas fa-chevron-right me-2 text-primary"></i> Visión y Estrategia de trabajo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card links-card">
+                        <div class="card-header text-center">
+                            <h5 class="mb-0"><i class="fas fa-link me-1"></i> Links</h5>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-arrow-right me-2 text-primary"></i> Trabajos nuevos</li>
+                            <li class="list-group-item"><i class="fas fa-arrow-right me-2 text-primary"></i> Mejores prácticas de trabajo</li>
+                            <li class="list-group-item"><i class="fas fa-arrow-right me-2 text-primary"></i> Lluvia de ideas</li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container-fluid text-center">
+            <span class="text-muted">&copy; 2024 WorkHub - Portal de Trabajo. Todos los derechos reservados.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
