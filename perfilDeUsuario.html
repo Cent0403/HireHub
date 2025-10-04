@@ -1,108 +1,175 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Perfil de Usuario</title>
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="/style/perfilcss.css">
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireHub - Mi Perfil de Candidato</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Enlace al nuevo archivo CSS para los estilos de la web -->
+    <link rel="stylesheet" href="style/perfilcss.css"> 
 </head>
-<body class="bg-custom">
+<body>
 
-  <div class="container py-4">
-
-    <!-- Encabezado -->
-    <header class="d-flex justify-content-between align-items-center mb-4">
-  <a href="index.html" class="btn btn-back">⬅ Regresar</a>
-  <h1 class="badge bg-highlight text-dark fs-4 px-4 py-2">Perfil de usuario</h1>
-  <div></div> 
-</header>
-
-
-    <div class="row g-4">
-
-      
-      <aside class="col-md-4">
-        <div class="card shadow-sm rounded-3">
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-3">
-              <img src="https://via.placeholder.com/70" class="rounded-circle me-2" alt="Foto usuario">
-              <div>
-                <h6 class="mb-0">Pedro Granados</h6>
-                <small class="text-muted">yourname@gmail.com</small>
-              </div>
+    <!-- Barra de Navegación Superior (Top Navbar) -->
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom custom-navbar-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-briefcase-fill me-2 fs-4 custom-icon-color"></i>
+                <span class="fw-bold fs-5 text-dark">HireHub</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 custom-navbar-links">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Find Job</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Find Employers</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Customer Supports</a></li>
+                </ul>
             </div>
-
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item d-flex justify-content-between align-items-center active-item">
-                <span>👤 Mi Perfil</span>
-              </li>
-              <li class="list-group-item">⚙️ Ajustes</li>
-              <li class="list-group-item d-flex justify-content-between align-items-center">
-                <span>🔔 Notificaciones</span>
-                <small class="text-success">Permitir</small>
-              </li>
-              <li class="list-group-item">↩️ Log Out</li>
-            </ul>
-          </div>
+            
+            <div class="d-flex align-items-center">
+                <i class="bi bi-search me-3"></i>
+                <!-- Dropdown de Usuario -->
+                <div class="dropdown">
+                    <button class="btn p-0 border-0 d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://i.pravatar.cc/300?img=60" alt="Avatar" class="rounded-circle custom-avatar-sm me-2">
+                        <span class="d-none d-lg-inline fw-bold text-dark">Jane Doe</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li><a class="dropdown-item" href="ajustesDashboard.html"><i class="bi bi-person me-2"></i>Ver Perfil</a></li>
+                      <li><a class="dropdown-item" href="ajustesDashboard.html"><i class="bi bi-gear me-2"></i>Ajustes</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-left me-2"></i>Cerrar Sesión</a></li>
+                    </ul>
+                  </div>
+            </div>
         </div>
-      </aside>
+    </nav>
 
-      
-      <section class="col-md-8">
-        <div class="card shadow-sm rounded-3">
-          <div class="card-body">
-            <div class="d-flex align-items-center mb-3 position-relative">
-              <img src="https://via.placeholder.com/60" class="rounded-circle me-2" alt="Foto usuario">
-              <div>
-                <h6 class="mb-0">Pedro Granados</h6>
-                <small class="text-muted">yourname@gmail.com</small>
-              </div>
-              <button class="btn-close position-absolute top-0 end-0"></button>
-            </div>
-
-            <div class="mb-3 border-bottom d-flex justify-content-between py-2">
-              <span>Nombre</span><span class="text-muted">Pedro Granados</span>
-            </div>
-            <div class="mb-3 border-bottom d-flex justify-content-between py-2">
-              <span>Correo Electrónico</span><span class="text-muted">yourname@gmail.com</span>
-            </div>
-            <div class="mb-3 border-bottom d-flex justify-content-between py-2">
-              <span>Número de Teléfono</span><span class="text-muted">Añadir Número</span>
-            </div>
-            <div class="mb-4 border-bottom d-flex justify-content-between py-2">
-              <span>Ubicación</span><span class="text-muted">USA</span>
+    <div class="container-fluid custom-main-content">
+        <div class="row">
+            <!-- Sidebar / Menú Lateral -->
+            <div class="col-md-3 col-lg-2 custom-sidebar p-0 d-none d-md-block">
+                <div class="p-3">
+                    <h6 class="text-uppercase text-secondary mb-3 custom-sidebar-title">Candidate Dashboard</h6>
+                    <ul class="nav flex-column custom-sidebar-nav">
+                        <li class="nav-item"><a class="nav-link" href="dashBoard.html"><i class="bi bi-grid-fill me-2"></i>Overview</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="perfilCandidato.html"><i class="bi bi-person-circle me-2"></i>Profile</a></li>
+                        <li class="nav-item"><a class="nav-link" href="aplicarTrabajo.html"><i class="bi bi-file-earmark-text-fill me-2"></i>Applied jobs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="trabajoFavoritos.html"><i class="bi bi-bookmark-fill me-2"></i>Favorites jobs</a></li>
+                        <li class="nav-item d-flex justify-content-between align-items-center">
+                            <a class="nav-link" href="alertaTrabajo.html"><i class="bi bi-bell-fill me-2"></i>Job alert</a>
+                            <span class="badge rounded-pill bg-danger custom-badge-red">09</span>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="ajustesDashboard.html"><i class="bi bi-gear-fill me-2"></i>Settings</a></li>
+                    </ul>
+                </div>
             </div>
 
-            <button class="btn btn-save">Guardar Cambios</button>
-          </div>
+            <!-- Contenido Principal -->
+            <main class="col-md-9 col-lg-10 ms-sm-auto px-md-4 py-4 custom-main-bg">
+                <h2 class="h4 fw-bold mb-4 custom-page-title">My Professional Profile</h2>
+                
+                <!-- Sección 1: Tarjeta de Perfil Principal -->
+                <div class="card custom-profile-card shadow-sm mb-4">
+                    <div class="card-body">
+                        <div class="d-flex flex-column flex-md-row align-items-center">
+                            <img src="https://i.pravatar.cc/100?img=50" alt="Avatar de Usuario" class="rounded-circle custom-avatar-xl me-md-4 mb-3 mb-md-0 border border-4 custom-border-primary">
+                            <div class="text-center text-md-start">
+                                <h1 class="h3 fw-bold mb-1">Jane Doe <i class="bi bi-patch-check-fill custom-text-primary fs-5 ms-2"></i></h1>
+                                <p class="text-secondary mb-2">Senior Product Designer | UX/UI Specialist</p>
+                                <div class="d-flex justify-content-center justify-content-md-start align-items-center text-muted small">
+                                    <i class="bi bi-geo-alt-fill me-1"></i> New York, USA
+                                    <span class="mx-2">|</span>
+                                    <i class="bi bi-clock-fill me-1"></i> Full Time
+                                </div>
+                            </div>
+                            <a href="ajustesDashboard.html" class="btn custom-btn-primary ms-md-auto mt-3 mt-md-0 d-flex align-items-center">
+                                <i class="bi bi-pencil-fill me-2"></i> Edit Profile
+                            </a>
+                        </div>
+                        <hr class="my-4">
+                        <div class="row text-center">
+                            <div class="col-4 border-end">
+                                <p class="mb-0 fw-bold custom-text-primary">12 Años</p>
+                                <small class="text-secondary">Experiencia</small>
+                            </div>
+                            <div class="col-4 border-end">
+                                <p class="mb-0 fw-bold custom-text-primary">56</p>
+                                <small class="text-secondary">Proyectos</small>
+                            </div>
+                            <div class="col-4">
+                                <p class="mb-0 fw-bold custom-text-primary">4.8/5</p>
+                                <small class="text-secondary">Valoración</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sección 2: Información Detallada (Acerca de) -->
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="card custom-detail-card shadow-sm">
+                            <div class="card-header bg-white fw-bold custom-text-primary">About me</div>
+                            <div class="card-body">
+                                <p class="text-secondary">Soy una diseñadora de producto con 12 años de experiencia creando interfaces de usuario intuitivas y atractivas para aplicaciones SaaS y móviles. Mi enfoque principal es fusionar la excelencia del diseño con los objetivos empresariales para ofrecer soluciones que deleiten a los usuarios y generen crecimiento.</p>
+                                <p class="text-secondary mb-0">Habilidades clave: Figma, Sketch, Prototipado, Investigación de Usuario, Diseño de Sistemas, HTML/CSS básico.</p>
+                            </div>
+                        </div>
+
+                        <!-- Sección de Habilidades -->
+                        <div class="card custom-detail-card shadow-sm mt-4">
+                            <div class="card-header bg-white fw-bold custom-text-primary">Technical Skills</div>
+                            <div class="card-body">
+                                <div class="d-flex flex-wrap">
+                                    <span class="badge custom-badge-skill me-2 mb-2">Figma</span>
+                                    <span class="badge custom-badge-skill me-2 mb-2">UX Research</span>
+                                    <span class="badge custom-badge-skill me-2 mb-2">Prototyping</span>
+                                    <span class="badge custom-badge-skill me-2 mb-2">Design Systems</span>
+                                    <span class="badge custom-badge-skill me-2 mb-2">Mobile UI</span>
+                                    <span class="badge custom-badge-skill me-2 mb-2">Agile/Scrum</span>
+                                    <span class="badge custom-badge-skill me-2 mb-2">User Interviews</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Columna Derecha: Contacto y CV -->
+                    <div class="col-lg-4">
+                        <div class="card custom-detail-card shadow-sm">
+                            <div class="card-header bg-white fw-bold custom-text-primary">Contact Details</div>
+                            <div class="card-body">
+                                <ul class="list-unstyled custom-contact-list">
+                                    <li><i class="bi bi-envelope-fill me-2 custom-text-primary"></i> jane.doe@hirehub.com</li>
+                                    <li><i class="bi bi-phone-fill me-2 custom-text-primary"></i> +1 (555) 123-4567</li>
+                                    <li><i class="bi bi-linkedin me-2 custom-text-primary"></i> /in/janedoeUX</li>
+                                    <li><i class="bi bi-globe me-2 custom-text-primary"></i> portfolio.com</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Tarjeta de CV/Resume -->
+                        <div class="card custom-detail-card shadow-sm mt-4 custom-resume-card">
+                            <div class="card-body text-center">
+                                <i class="bi bi-file-earmark-arrow-down-fill custom-text-primary fs-1 mb-3"></i>
+                                <p class="fw-bold mb-2">Currículum</p>
+                                <a href="#" class="btn custom-btn-secondary w-100">Descargar CV Actual</a>
+                                <a href="#" class="btn btn-link text-secondary mt-2 p-0 small">Subir nueva versión</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </main>
         </div>
-      </section>
-
-     
-      <section class="col-md-4">
-        <div class="card shadow-sm rounded-3">
-          <div class="card-body">
-            <div class="d-flex justify-content-between align-items-center mb-3">
-              <h6 class="mb-0">Ajustes</h6>
-              <button class="btn-close"></button>
-            </div>
-            <div class="mb-2 border-bottom d-flex justify-content-between py-2">
-              <span>Tema</span><span class="text-muted">Light ⬇️</span>
-            </div>
-            <div class="border-bottom d-flex justify-content-between py-2">
-              <span>Idioma</span><span class="text-muted">Eng ⬇️</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
     </div>
-  </div>
 
- 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <footer class="text-center py-3 border-top custom-footer">
+        <small>&copy; 2024 HireHub - Job Board. Todos los derechos reservados</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
