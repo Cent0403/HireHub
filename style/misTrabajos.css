@@ -1,0 +1,422 @@
+/* Paleta de Colores (Basada en la imagen) */
+:root {
+    --color-principal: #023436; /* Midnight Green (Sidebar/Principal) */
+    --color-resalte: #00BFB3; /* Light Sea Green (Botones/Éxito) */
+    --color-secundario: #037971; /* Pine Green (Enlaces/Activo) */
+    --color-terciario: #049A8F; /* Persian Green (Para un toque) */
+    --color-gris-claro: #f8f9fa; /* Fondo general */
+    --color-texto-claro: #888;
+    --color-borde: #eee;
+    --color-expirado: #dc3545; /* Rojo para expirado */
+}
+
+/* Base y Reset */
+* {
+    margin: 0;  
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--color-gris-claro);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navegación Superior (Top Nav) */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #fff;
+    border-bottom: 1px solid var(--color-borde);
+    font-size: 14px;
+}
+
+.top-nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-principal);
+}
+
+.top-nav nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.top-nav nav ul li {
+    padding: 0 15px;
+}
+
+.top-nav nav ul li a:hover {
+    color: var(--color-resalte);
+}
+
+.top-nav nav ul .active-link a {
+    color: var(--color-principal);
+    font-weight: 600;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-actions .contact {
+    color: var(--color-texto-claro);
+}
+
+.language-select {
+    padding: 5px 10px;
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.post-job-btn {
+    background-color: var(--color-resalte);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.post-job-btn:hover {
+    background-color: var(--color-secundario);
+}
+
+.instagram-icon {
+    font-size: 1.5rem;
+    color: #E1306C; /* Instagram color simulación */
+}
+
+/* Contenedor Principal (Sidebar + Contenido) */
+.main-container {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: #fff; /* Fondo blanco para la estructura */
+    border-right: 1px solid var(--color-borde);
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+}
+
+.sidebar-header {
+    color: var(--color-texto-claro);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: #555;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.sidebar-nav ul li a i {
+    margin-right: 10px;
+    color: var(--color-texto-claro);
+}
+
+.sidebar-nav ul li a:hover {
+    background-color: var(--color-gris-claro);
+    color: var(--color-principal);
+}
+
+.sidebar-nav ul li.active {
+    background-color: var(--color-principal); /* Fondo activo del sidebar */
+    color: white;
+    border-right: 3px solid var(--color-resalte);
+}
+
+.sidebar-nav ul li.active a {
+    color: white;
+}
+
+.sidebar-nav ul li.active a i {
+    color: white;
+}
+
+.sidebar-footer {
+    margin-top: auto;
+    padding: 20px;
+    border-top: 1px solid var(--color-borde);
+}
+
+.sidebar-footer a {
+    color: var(--color-texto-claro);
+}
+
+.sidebar-footer i {
+    margin-right: 10px;
+}
+
+/* Contenido Principal */
+.content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: var(--color-gris-claro);
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.content-header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-principal);
+}
+
+.content-header .job-count {
+    font-size: 1.2rem;
+    color: var(--color-texto-claro);
+    font-weight: 400;
+}
+
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-controls label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.status-select {
+    padding: 8px 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+/* Estilos de la Tabla de Trabajos (Job List) */
+.job-list-table {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.table-header, .job-row {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1.5fr 1.5fr;
+    padding: 15px 20px;
+    align-items: center;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.table-header {
+    font-weight: 600;
+    color: #555;
+    background-color: #f7f7f7;
+    font-size: 0.9rem;
+}
+
+.job-row {
+    transition: background-color 0.2s;
+}
+
+.job-row:hover {
+    background-color: var(--color-gris-claro);
+}
+
+/* Columnas */
+.col-job {
+    display: flex;
+    flex-direction: column;
+}
+
+.job-title {
+    font-weight: 600;
+    color: var(--color-principal);
+    margin-bottom: 3px;
+}
+
+.job-details {
+    font-size: 0.85rem;
+    color: var(--color-texto-claro);
+}
+
+.col-status {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+    display: inline-block;
+}
+
+.status-active .status-dot {
+    background-color: var(--color-resalte);
+}
+
+.status-expired .status-dot {
+    background-color: var(--color-expirado);
+}
+
+.status-active {
+    color: var(--color-secundario);
+}
+
+.status-expired {
+    color: var(--color-expirado);
+}
+
+.col-applications {
+    color: #555;
+}
+
+.col-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative; /* Para el menú desplegable */
+}
+
+.view-applications-btn {
+    background-color: #f7f7f7;
+    color: #555;
+    border: 1px solid var(--color-borde);
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.view-applications-btn:hover {
+    background-color: #eee;
+}
+
+.blue-btn {
+    background-color: var(--color-resalte);
+    color: white;
+    border-color: var(--color-resalte);
+}
+
+.blue-btn:hover {
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+}
+
+.action-menu {
+    margin-left: 15px;
+    color: var(--color-texto-claro);
+    cursor: pointer;
+    padding: 5px;
+}
+
+/* Menú Desplegable Simulado */
+.dropdown-menu {
+    position: absolute;
+    top: 100%; /* Posiciona debajo del botón */
+    right: 0;
+    background-color: #fff;
+    border: 1px solid var(--color-borde);
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    min-width: 150px;
+    margin-top: 5px;
+    display: none; /* Ocultar por defecto, se muestra en la fila activa */
+    /* Para simular que se muestra en la fila activa */
+    /* **Nota:** En un entorno real se haría con JavaScript al hacer clic en el ícono de los 3 puntos */
+}
+
+.active-row .dropdown-menu {
+    display: block; /* Muestra el menú en la fila de ejemplo */
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--color-gris-claro);
+    color: var(--color-principal);
+}
+
+
+/* Paginación */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    gap: 10px;
+    border-top: 1px solid var(--color-borde);
+}
+
+.pagination i {
+    color: var(--color-texto-claro);
+    cursor: pointer;
+    padding: 5px;
+}
+
+.page-number {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.active-page {
+    background-color: var(--color-principal);
+    color: white;
+}
+
+/* Footer Principal */
+.main-footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 0.8rem;
+    color: var(--color-texto-claro);
+    background-color: #fff;
+    border-top: 1px solid var(--color-borde);
+}
