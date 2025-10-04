@@ -15,6 +15,48 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold text-c2" href="#">
+      <img src="images/logo.png" alt="HireHub Logo" width="35" class="me-2">
+      HireHub
+    </a>
+
+    <!-- Botón responsive -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Find Job</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Find Employers</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Customer Supports</a></li>
+      </ul>
+
+      <!-- Perfil Usuario -->
+      <div class="dropdown">
+        <a class="d-flex align-items-center text-decoration-none dropdown-toggle" href="#" id="userMenu" data-bs-toggle="dropdown">
+          <img src="images/user-avatar.jpg" alt="User Avatar" class="rounded-circle me-2" width="35" height="35">
+          <span class="fw-semibold text-c3">Miguel</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+          <li><a class="dropdown-item" href="#">My Profile</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
   
   <!-- Job Details -->
   <div class="container job-details my-5">
@@ -90,33 +132,102 @@
       </div>
 
       <!-- Columna derecha -->
-      <div class="col-lg-4">
-        <div class="card p-4 mb-4">
-          <button class="btn btn-primary w-100 mb-3">Apply Now</button>
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <span class="fw-bold">Salary</span>
-            <span class="text-c1">$100,000 - $120,000</span>
-          </div>
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <span class="fw-bold">Job Location</span>
-            <span class="text-muted">Dhaka, Bangladesh</span>
-          </div>
-          <div class="d-flex justify-content-between align-items-center mb-3">
-            <span class="fw-bold">Remote</span>
-            <span class="text-muted">Worldwide</span>
-          </div>
-        </div>
+      
+<div class="col-lg-4">
+  <div class="card p-4 mb-4">
+    <button class="btn btn-primary w-100 mb-3" data-bs-toggle="modal" data-bs-target="#applyModal">
+      Apply Now
+    </button>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="fw-bold">Salary</span>
+      <span class="text-c1">$100,000 - $120,000</span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="fw-bold">Job Location</span>
+      <span class="text-muted">Dhaka, Bangladesh</span>
+    </div>
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="fw-bold">Remote</span>
+      <span class="text-muted">Worldwide</span>
+    </div>
+  </div>
 
-        <div class="card p-4">
-          <h6 class="fw-bold mb-3">Job Overview</h6>
-          <ul class="list-unstyled small">
-            <li><strong>Posted:</strong> 14 Jan, 2021</li>
-            <li><strong>Deadline:</strong> 14 Aug, 2021</li>
-            <li><strong>Experience:</strong> 2+ Years</li>
-            <li><strong>Education:</strong> Graduate</li>
-          </ul>
-        </div>
+  <div class="card p-4">
+    <h6 class="fw-bold mb-3">Job Overview</h6>
+    <ul class="list-unstyled small">
+      <li><strong>Posted:</strong> 14 Jan, 2021</li>
+      <li><strong>Deadline:</strong> 14 Aug, 2021</li>
+      <li><strong>Experience:</strong> 2+ Years</li>
+      <li><strong>Education:</strong> Graduate</li>
+    </ul>
+  </div>
+</div>
+
+<!-- 📌 Modal Apply -->
+<div class="modal fade" id="applyModal" tabindex="-1" aria-labelledby="applyModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      
+      <!-- Header -->
+      <div class="modal-header">
+        <h5 class="modal-title" id="applyModalLabel">Apply for Senior UX Designer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
+
+      <!-- Body -->
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="fullname" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="fullname" placeholder="Your name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="your@email.com" required>
+          </div>
+          <div class="mb-3">
+            <label for="cv" class="form-label">Upload CV</label>
+            <input type="file" class="form-control" id="cv" required>
+          </div>
+          <div class="mb-3">
+            <label for="coverLetter" class="form-label">Cover Letter</label>
+            <textarea class="form-control" id="coverLetter" rows="4" placeholder="Why should we hire you?" required></textarea>
+          </div>
+        </form>
+      </div>
+
+      <!-- Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cancel</button>
+        
+        <!-- 🔹 Este botón cierra este modal y abre el de confirmación -->
+        <button type="button" 
+                class="btn btn-primary" 
+                data-bs-target="#successModal" 
+                data-bs-toggle="modal" 
+                data-bs-dismiss="modal">
+          Submit Application
+        </button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 📌 Modal Success -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content text-center p-4">
+      <div class="modal-body">
+        <h4 class="text-c1 mb-3">✅ Application Sent</h4>
+        <p class="text-muted">Your application was submitted successfully. We will contact you soon.</p>
+        <button type="button" class="btn btn-primary mt-3" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
     </div>
   </div>
