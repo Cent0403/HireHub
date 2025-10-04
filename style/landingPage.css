@@ -105,3 +105,14 @@ footer a:hover {
   display: block;
   margin: 0 auto;
 }
+
+/* Nuevo estilo para el botón Login (Turquesa delineado) */
+.btn-outline-turquesa {
+    color: #03B5AA;
+    border-color: #03B5AA;
+}
+.btn-outline-turquesa:hover {
+    color: white;
+    background-color: #03B5AA;
+    border-color: #03B5AA;
+}
