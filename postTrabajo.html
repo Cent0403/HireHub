@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireHub - Publicar Empleo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Enlace al archivo CSS para los estilos con la nueva paleta -->
+    <link rel="stylesheet" href="style/postTrabajo.css">
+</head>
+<body>
+
+    <!-- Barra de Navegación Superior (Top Navbar) -->
+    <nav class="navbar navbar-expand-lg navbar-light border-bottom custom-navbar-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="bi bi-briefcase-fill me-2 fs-4 custom-icon-color"></i>
+                <span class="fw-bold fs-5 text-dark">HireHub</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 custom-navbar-links">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">My Applications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Customers Support</a></li>
+                </ul>
+            </div>
+            
+            <div class="d-flex align-items-center">
+                <a href="#" class="btn custom-btn-primary d-flex align-items-center me-3">
+                    <i class="bi bi-plus-circle-fill me-2"></i> Post A Job
+                </a>
+                <!-- Dropdown de Usuario -->
+                <div class="dropdown">
+                    <button class="btn p-0 border-0 d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://i.pravatar.cc/300?img=53" alt="Avatar" class="rounded-circle custom-avatar-sm me-2">
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                      <li><a class="dropdown-item" href="#"><i class="bi bi-person me-2"></i>My Profile</a></li>
+                      <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Settings</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li><a class="dropdown-item text-danger" href="#"><i class="bi bi-box-arrow-left me-2"></i>Log-out</a></li>
+                    </ul>
+                  </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid custom-main-content">
+        <div class="row">
+            <!-- Sidebar / Menú Lateral (EMPLEADOR) -->
+            <div class="col-md-3 col-lg-2 custom-sidebar p-0 d-none d-md-block">
+                <div class="p-3">
+                    <h6 class="text-uppercase text-secondary mb-3 custom-sidebar-title">Employer Dashboard</h6>
+                    <ul class="nav flex-column custom-sidebar-nav">
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-grid-fill me-2"></i>Overview</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-building-fill me-2"></i>Employers Profile</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-briefcase-fill me-2"></i>Post a Job</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-calendar-check-fill me-2"></i>My Jobs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-bookmark-fill me-2"></i>Saved Candidate</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-wallet-fill me-2"></i>Plans & Billing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-people-fill me-2"></i>All Companies</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-gear-fill me-2"></i>Settings</a></li>
+                    </ul>
+                </div>
+                <div class="p-3 mt-5">
+                    <a class="nav-link text-secondary" href="#"><i class="bi bi-box-arrow-left me-2"></i>Log-out</a>
+                </div>
+            </div>
+
+            <!-- Contenido Principal - Formulario de Publicación -->
+            <main class="col-md-9 col-lg-10 ms-sm-auto px-md-4 py-4 custom-main-bg">
+                <h2 class="h4 fw-bold mb-4 custom-page-title">Post a job</h2>
+                
+                <div class="card custom-profile-card shadow-sm mb-4 p-4">
+                    <form id="postJobForm">
+                        <!-- SECCIÓN 1 a 6 (MANTENIDA) -->
+                        <div class="mb-5">
+                            <h5 class="fw-bold mb-3">Job Title</h5>
+                            <div class="mb-4">
+                                <label for="jobTitle" class="form-label text-secondary">Job Title</label>
+                                <input type="text" class="form-control custom-input" id="jobTitle" placeholder="Add job title, role, vacancies etc">
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label for="tags" class="form-label text-secondary">Tags</label>
+                                    <input type="text" class="form-control custom-input" id="tags" placeholder="Job title, keyword, tags etc...">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="jobRole" class="form-label text-secondary">Job Role</label>
+                                    <select class="form-select custom-select" id="jobRole">
+                                        <option selected>Select...</option>
+                                        <option value="1">Designer</option>
+                                        <option value="2">Developer</option>
+                                        <option value="3">Manager</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 2: Salary -->
+                        <div class="mb-5">
+                            <h5 class="fw-bold mb-3">Salary</h5>
+                            <div class="row mb-4 align-items-end">
+                                <div class="col-md-3">
+                                    <label for="minSalary" class="form-label text-secondary">Min Salary</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text custom-input-group-text">USD</span>
+                                        <input type="number" class="form-control custom-input" id="minSalary" placeholder="Minimum salary...">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="maxSalary" class="form-label text-secondary">Max Salary</label>
+                                    <div class="input-group">
+                                        <span class="input-group-text custom-input-group-text">USD</span>
+                                        <input type="number" class="form-control custom-input" id="maxSalary" placeholder="Maximum salary...">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="salaryType" class="form-label text-secondary">Salary Type</label>
+                                    <select class="form-select custom-select" id="salaryType">
+                                        <option selected>Select Type</option>
+                                        <option value="1">Monthly</option>
+                                        <option value="2">Annually</option>
+                                        <option value="3">Hourly</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 3: Advance Information -->
+                        <div class="mb-5">
+                            <h5 class="fw-bold mb-3">Advance Information</h5>
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <label for="education" class="form-label text-secondary">Education</label>
+                                    <select class="form-select custom-select" id="education"><option selected>Select...</option></select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="experience" class="form-label text-secondary">Experience</label>
+                                    <select class="form-select custom-select" id="experience"><option selected>Select...</option></select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="jobType" class="form-label text-secondary">Job Type</label>
+                                    <select class="form-select custom-select" id="jobType"><option selected>Select...</option></select>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="col-md-4">
+                                    <label for="vacancies" class="form-label text-secondary">Vacancies</label>
+                                    <select class="form-select custom-select" id="vacancies"><option selected>Select...</option></select>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="expirationDate" class="form-label text-secondary">Expiration Date</label>
+                                    <input type="date" class="form-control custom-input" id="expirationDate">
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="jobLevel" class="form-label text-secondary">Job Level</label>
+                                    <select class="form-select custom-select" id="jobLevel"><option selected>Select...</option></select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 4: Location -->
+                        <div class="mb-5 custom-location-bg p-4 rounded-3">
+                            <h5 class="fw-bold mb-3">Location</h5>
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <label for="country" class="form-label text-secondary">Country</label>
+                                    <select class="form-select custom-select" id="country"><option selected>Select...</option></select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="city" class="form-label text-secondary">City</label>
+                                    <select class="form-select custom-select" id="city"><option selected>Select...</option></select>
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="remoteCheckbox">
+                                <label class="form-check-label text-secondary" for="remoteCheckbox">
+                                    Fully Remote Position - Worldwide
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 5: Job Benefits -->
+                        <div class="mb-5">
+                            <h5 class="fw-bold mb-3">Job Benefits</h5>
+                            <div class="d-flex flex-wrap">
+                                <span class="badge custom-badge-benefit me-2 mb-2">401k Salary</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">Distributed Team</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">Async</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">Vision Insurance</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">Dental Insurance</span>
+                                <span class="badge custom-badge-benefit custom-badge-benefit-active me-2 mb-2">Medical Insurance</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">Unlimited Vacation</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">4 day workweek</span>
+                                <span class="badge custom-badge-benefit custom-badge-benefit-active me-2 mb-2">401K matching / Company pension</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">Learning budget</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">Free gym membership</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">Pay in crypto</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">Profit Sharing</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">Equity Compensation</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">No whiteboard interview</span>
+                                <span class="badge custom-badge-benefit me-2 mb-2">No politics at work</span>
+                                <span class="badge custom-badge-benefit custom-badge-benefit-active me-2 mb-2">We hire old (and young)</span>
+                            </div>
+                        </div>
+
+                        <!-- SECCIÓN 6: Job Description -->
+                        <div class="mb-5">
+                            <h5 class="fw-bold mb-3">Job Description</h5>
+                            <textarea class="form-control custom-textarea" id="jobDescription" rows="6" placeholder="Add your job description..."></textarea>
+                            <div class="d-flex justify-content-start border-top p-2 small text-secondary custom-toolbar-bg">
+                                <i class="bi bi-type-bold me-3"></i>
+                                <i class="bi bi-type-italic me-3"></i>
+                                <i class="bi bi-type-underline me-3"></i>
+                                <i class="bi bi-list-ul me-3"></i>
+                                <i class="bi bi-list-ol me-3"></i>
+                                <i class="bi bi-link-45deg me-3"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- SECCIÓN 7: Apply Option -->
+                        <div class="mb-5">
+                            <h5 class="fw-bold mb-3">Apply Job on:</h5>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <div class="card custom-apply-card p-3">
+                                        <input class="form-check-input" type="radio" name="applyOption" id="applyOnJobpilot" checked>
+                                        <label class="form-check-label ms-2 fw-bold" for="applyOnJobpilot">
+                                            On Jobpilot
+                                        </label>
+                                        <p class="text-secondary small mt-2">Candidates will complete the application directly on this website, and you can view it from the dashboard.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card custom-apply-card p-3">
+                                        <input class="form-check-input" type="radio" name="applyOption" id="externalPlatform">
+                                        <label class="form-check-label ms-2 fw-bold" for="externalPlatform">
+                                            External Platform
+                                        </label>
+                                        <p class="text-secondary small mt-2">Enter the application URL on your website.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card custom-apply-card p-3">
+                                        <input class="form-check-input" type="radio" name="applyOption" id="onEmail">
+                                        <label class="form-check-label ms-2 fw-bold" for="onEmail">
+                                            On Your Email
+                                        </label>
+                                        <p class="text-secondary small mt-2">Candidates will be directed to your email address.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botón Final de Publicación (Ahora de tipo 'button' para prevenir el submit nativo) -->
+                        <button type="button" id="openSuccessModalBtn" class="btn custom-btn-primary custom-btn-lg"><i class="bi bi-send-fill me-2"></i> Post Job</button>
+                    </form>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <footer class="text-center py-3 border-top custom-footer">
+        <small>&copy; 2024 HireHub - Job Board. All rights reserved</small>
+    </footer>
+
+    <!-- -------------------------------------------------------------------------- -->
+    <!-- MODAL DE CONFIRMACIÓN Y PROMOCIÓN -->
+    <!-- -------------------------------------------------------------------------- -->
+    <div class="modal fade" id="postJobSuccessModal" tabindex="-1" aria-labelledby="postJobSuccessModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered custom-modal-lg">
+            <div class="modal-content custom-modal-content">
+                <div class="modal-header border-0 pb-0">
+                    <button type="button" class="btn-close custom-close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-0 px-5 pb-5">
+                    
+                    <!-- Sección de Confirmación -->
+                    <div class="d-flex align-items-start mb-4">
+                        <i class="bi bi-check-circle-fill fs-3 me-3 custom-text-primary"></i>
+                        <div>
+                            <h4 class="fw-bold mb-1">Congratulation, Your Job is successfully posted!</h4>
+                            <p class="text-secondary mb-2">You can manage your form my-jobs section in your dashboard</p>
+                            <button class="btn btn-sm custom-btn-secondary-outline">
+                                View Jobs <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Sección de Promoción -->
+                    <div class="mt-4">
+                        <h5 class="fw-bold mb-4">Promote Job: UI/UX Designer</h5>
+                        <p class="text-secondary small">Fusce commodo, sem non tempor convallis, sapien turpis bibendum turpis, non pharetra nisi velit pulvinar lectus. Suspendisse varius at nisl aliquam.</p>
+
+                        <div class="row g-4 mt-3">
+                            <!-- Opción 1: Featured Job (Always on Top) -->
+                            <div class="col-md-6">
+                                <label class="custom-promotion-card">
+                                    <input type="radio" name="promotionOption" value="featured" checked>
+                                    <div class="card-content p-4">
+                                        <div class="small text-secondary fw-bold mb-3">ALWAYS ON THE TOP</div>
+                                        <div class="custom-box-illustration custom-box-featured mb-3">
+                                            <div class="custom-line-sm custom-line-sm-active"></div>
+                                            <div class="custom-line-md"></div>
+                                            <div class="custom-line-sm"></div>
+                                        </div>
+                                        <h6 class="fw-bold mt-3">Featured Your Job</h6>
+                                        <p class="small text-secondary mb-0">Sed neque diam, lacinia nec dolor et, euismod bibendum turpis. Sed feugiat faucibus.</p>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <!-- Opción 2: Highlight Job (With Color) -->
+                            <div class="col-md-6">
+                                <label class="custom-promotion-card">
+                                    <input type="radio" name="promotionOption" value="highlight">
+                                    <div class="card-content p-4">
+                                        <div class="small text-secondary fw-bold mb-3">HIGHLIGHT JOB WITH COLOR</div>
+                                        <div class="custom-box-illustration custom-box-highlight mb-3">
+                                            <div class="custom-line-sm"></div>
+                                            <div class="custom-color-box"></div>
+                                            <div class="custom-line-md"></div>
+                                        </div>
+                                        <h6 class="fw-bold mt-3">Highlight Your Job</h6>
+                                        <p class="small text-secondary mb-0">Sed neque diam, lacinia nec dolor et, euismod bibendum turpis. Sed feugiat faucibus.</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botones de Acción del Modal -->
+                    <div class="d-flex justify-content-between align-items-center mt-5">
+                        <button type="button" class="btn btn-link text-secondary text-decoration-none fw-bold" data-bs-dismiss="modal">Skip Now</button>
+                        <button type="button" class="btn custom-btn-primary custom-btn-lg">PROMOTE JOB <i class="bi bi-arrow-right"></i></button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const openModalBtn = document.getElementById('openSuccessModalBtn');
+            const successModal = new bootstrap.Modal(document.getElementById('postJobSuccessModal'));
+
+            // Previene el submit y muestra el modal
+            openModalBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                successModal.show();
+            });
+        });
+    </script>
+</body>
+</html>
