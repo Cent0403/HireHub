@@ -1,0 +1,102 @@
+:root {
+  --c1: #03B5AA;
+  --c2: #037971;
+  --c3: #023436;
+  --c4: #00BFB3;
+  --c5: #049A8F;
+  --bg-page: #f6f7f9;
+  --border-soft: #e8ebf0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--c3);
+  margin: 0;
+  padding: 0;
+}
+
+/* Fotos candidatos */
+.candidate-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Botones */
+.btn-primary {
+  background-color: var(--c1);
+  border: none;
+  font-weight: 600;
+  border-radius: 10px;
+}
+.btn-primary:hover {
+  background-color: var(--c2);
+}
+.btn-outline-primary {
+  color: var(--c1);
+  border-color: var(--c1);
+}
+.btn-outline-primary:hover {
+  background: var(--c1);
+  color: #fff;
+}
+
+/* Texto con colores */
+.text-c1 { color: var(--c1) !important; }
+.text-c2 { color: var(--c2) !important; }
+.text-c3 { color: var(--c3) !important; }
+
+/* Offcanvas */
+.custom-offcanvas {
+  width: 320px;
+}
+.section-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--c2);
+  margin-bottom: 0.5rem;
+}
+
+/* Footer */
+.bg-c3 {
+  background-color: var(--c3) !important;
+}
+
+/* === Filtros === */
+.filter-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  background: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+
+.filter-card:hover {
+  box-shadow: 0 4px 12px #023436;
+  transform: translateY(-2px);
+}
+
+.filter-card h6 {
+  font-size: 0.95rem;
+  border-bottom: 1px solid #f1f1f1;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+.form-check-input:checked {
+  background-color: #023436;
+  border-color: #023436;
+}
+
+.form-check-label {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* colores de apoyo */
+.text-accent {
+  color: #049A8F !important;
+}
+

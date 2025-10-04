@@ -1,5 +1,7 @@
-/* === PALETA DEL PROYECTO === */ :root { --c1: #03B5AA; --c2: #037971; --c3: #023436; --c4: #00BFB3; --c5: #049A8F; --sidebar-width: 250px; --bg-page: #f6f7f9; --border-soft: #e8ebf0; }
-body {
+ :root { --c1: #03B5AA; --c2: #037971; --c3: #023436; --c4: #00BFB3; --c5: #049A8F; --sidebar-width: 250px; --bg-page: #f6f7f9; --border-soft: #e8ebf0; }
+
+
+ body {
   font-family: 'Inter', sans-serif;
   background-color: var(--bg-page);
   color: var(--c3);
@@ -23,7 +25,6 @@ body {
   padding: 5px;
 }
 
-/* Titulares */
 h4, h5, h6 {
   color: var(--c2);
   font-weight: 600;
@@ -34,7 +35,6 @@ p, li, span {
   font-size: 0.95rem;
 }
 
-/* Botón principal */
 .btn-primary {
   background-color: var(--c1);
   border: none;
@@ -47,7 +47,6 @@ p, li, span {
   background-color: var(--c2);
 }
 
-/* Badges */
 .badge {
   font-size: 0.75rem;
   padding: 6px 10px;
@@ -68,7 +67,6 @@ p, li, span {
   color: var(--c3) !important;
 }
 
-/* Related Jobs */
 .related-jobs h5 {
   color: var(--c2);
   font-weight: 700;
@@ -88,8 +86,49 @@ p, li, span {
   background: #fff;
 }
 
-/* Texto destacado (ej. salario) */
 .text-c1 {
   color: var(--c1);
   font-weight: 600;
+}
+
+.btn-outline-primary {
+  color: var(--c1) !important;
+  border-color: var(--c1) !important;
+  background-color: transparent !important;
+}
+.btn-outline-primary:hover {
+  color: #fff !important;
+  background-color: var(--c1) !important;
+  border-color: var(--c1) !important;
+}
+
+/* === NAVBAR STYLES === */
+.navbar {
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  color: var(--c3);
+  transition: color 0.3s;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color: var(--c1);
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  color: var(--c2) !important;
+}
+
+.dropdown-menu {
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+}
+
+.dropdown-item:hover {
+  background-color: var(--c1);
+  color: white;
 }

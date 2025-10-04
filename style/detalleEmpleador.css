@@ -1,0 +1,234 @@
+:root {
+  --c1: #03B5AA;
+  --c2: #037971;
+  --c3: #023436;
+  --c4: #00BFB3;
+  --c5: #049A8F;
+  --sidebar-width: 250px;
+  --bg-page: #f6f7f9;
+  --border-soft: #e8ebf0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-page);
+  color: var(--c3);
+  margin: 0;
+  padding: 0;
+}
+
+/* Card base (aplica tanto al detalle como a secciones internas) */
+.job-details .card,
+.employer-details .card {
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.company-initial {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px; /* si lo quieres cuadrado con esquinas redondeadas */
+  /* border-radius: 50%;  Si prefieres círculo */
+  
+  background-color: var(--c1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+/* Tipografías y pesos */
+h4, h5, h6 {
+  color: var(--c2);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+p, li, span {
+  color: var(--c3);
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+/* Botones primarios */
+.btn-primary {
+  background-color: var(--c1);
+  border: none;
+  font-weight: 600;
+  border-radius: 10px;
+  transition: background 0.2s;
+  padding: 0.575rem 1rem;
+}
+
+.btn-primary:hover {
+  background-color: var(--c2);
+}
+
+/* Badges */
+.badge {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 8px;
+  line-height: 1;
+}
+
+.badge.bg-success {
+  background-color: var(--c1) !important;
+  color: #fff !important;
+}
+
+.badge.bg-danger {
+  background-color: var(--c2) !important; /* #037971 */
+  color: #fff !important;
+}
+
+.badge.bg-warning {
+  background-color: #04a197 !important; /* acorde al ejemplo */
+  color: var(--c3) !important;
+}
+
+/* Sección "Related / Open Positions" similar al ejemplo */
+.related-jobs h5,
+.open-positions h5 {
+  color: var(--c2);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.related-jobs .job-card,
+.open-positions .job-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  border-radius: 10px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-soft);
+  padding: .75rem;
+}
+
+.related-jobs .job-card:hover,
+.open-positions .job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  background: #fff;
+}
+
+/* Link y texto destacado */
+.text-c1 {
+  color: var(--c1);
+  font-weight: 600;
+}
+
+/* Estilos para botones outline (reset/secondary) */
+.btn-outline-primary {
+  color: var(--c1) !important;
+  border-color: var(--c1) !important;
+  background-color: transparent !important;
+}
+.btn-outline-primary:hover {
+  color: #fff !important;
+  background-color: var(--c1) !important;
+  border-color: var(--c1) !important;
+}
+
+/* === NAVBAR STYLES (coherente con tu ejemplo) === */
+.navbar {
+  border-bottom: 1px solid var(--border-soft);
+  background: #fff;
+}
+
+.navbar .nav-link {
+  font-weight: 500;
+  color: var(--c3);
+  transition: color 0.3s;
+}
+
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color: var(--c1);
+}
+
+.navbar-brand {
+  font-size: 1.25rem;
+  color: var(--c2) !important;
+}
+
+/* dropdowns */
+.dropdown-menu {
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+}
+.dropdown-item:hover {
+  background-color: var(--c1);
+  color: white;
+}
+
+/* Right column / company info list */
+.company-info ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.company-info ul li {
+  padding: .35rem 0;
+  border-bottom: 1px dashed var(--border-soft);
+  font-size: .95rem;
+}
+.company-info ul li:last-child {
+  border-bottom: none;
+}
+.company-info ul li strong {
+  display: inline-block;
+  min-width: 95px;
+  color: var(--c3);
+}
+
+/* Small helpers */
+.small-muted {
+  color: #6c757d;
+  font-size: .9rem;
+}
+
+/* Spacing tweaks for employer header area */
+.employer-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.employer-header .meta {
+  flex: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .employer-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .company-info ul li strong {
+    min-width: 0;
+    display: block;
+    margin-bottom: .25rem;
+  }
+}
+
+/* Footer (coherente con la paleta) */
+.footer {
+  background-color: var(--c3);
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+}
+.footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
