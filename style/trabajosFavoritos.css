@@ -1,0 +1,433 @@
+/*
+ * Paleta de Colores:
+ * --jp-light-sea-green-1: #03B5AA (Backgrounds ligeros, bordes)
+ * --jp-primary: #00BFB3 (Primario - Botones, enlaces activos)
+ * --jp-secondary: #037971 (Secundario/Hover)
+ * --jp-dark: #023436 (Oscuro - Texto principal)
+ * --jp-detail: #049A8F (Detalles - Iconos de estado, Bookmark)
+ */
+
+:root {
+    --jp-primary: #00BFB3;
+    --jp-secondary: #037971;
+    --jp-dark: #023436;
+    --jp-detail: #049A8F;
+    --jp-red-alert: #E94E51;
+    --jp-light-bg: #F8F9FA;
+    --jp-body-bg: #f7f7f7;
+    --jp-sidebar-active-bg: #ebf6f5;
+}
+
+/* --- Estilos Globales --- */
+.custom-body-bg {
+    background-color: var(--jp-body-bg);
+}
+
+.custom-primary-color {
+    color: var(--jp-primary) !important;
+}
+
+.custom-dark-text {
+    color: var(--jp-dark) !important;
+}
+
+.custom-select {
+    color: var(--jp-dark);
+    background-color: transparent !important;
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+}
+
+/* --- Barra de Navegación Superior (Top Nav - Corregida) --- */
+.custom-navbar-top {
+    background-color: white;
+    padding-top: 0;
+    padding-bottom: 0;
+    height: 60px; /* Altura fija para centrar los elementos */
+}
+
+.custom-navbar-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.custom-navbar-links .nav-link {
+    color: #6c757d;
+    font-weight: 500;
+    padding-left: 1.2rem;
+    padding-right: 1.2rem;
+    height: 60px;
+    line-height: 60px; /* Centra el texto verticalmente */
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: color 0.2s, border-bottom 0.2s;
+}
+
+.custom-navbar-links .nav-link.active {
+    color: var(--jp-primary);
+    border-bottom: 3px solid var(--jp-primary);
+    /* No necesitamos padding extra si usamos line-height */
+}
+
+.custom-avatar-sm {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+.custom-phone-text {
+    font-size: 0.9rem;
+    color: #6c757d !important;
+}
+
+/* --- Barra de Búsqueda (Second Row - Corregida) --- */
+.custom-search-bar {
+    background-color: white;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.custom-flag {
+    width: 20px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.custom-search-input .form-control {
+    border-color: #e9ecef !important;
+    box-shadow: none !important;
+    font-size: 0.95rem;
+}
+
+.custom-search-input .input-group-text {
+    border-color: #e9ecef !important;
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.custom-avatar-md {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* --- Sidebar (Corregida) --- */
+.custom-main-content {
+    min-height: calc(100vh - 120px);
+}
+
+.custom-sidebar {
+    background-color: white;
+    border-right: 1px solid #e9ecef;
+    min-height: 100%;
+    padding-bottom: 3rem !important;
+}
+
+.custom-sidebar-header {
+    color: #adb5bd !important;
+    font-size: 0.8rem;
+}
+
+.custom-sidebar-nav .nav-link {
+    color: var(--jp-dark);
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: all 0.2s;
+    font-size: 0.95rem;
+}
+
+.custom-sidebar-nav .nav-link i {
+    color: #6c757d;
+}
+
+.custom-sidebar-nav .nav-link.active {
+    background-color: var(--jp-sidebar-active-bg);
+    color: var(--jp-primary);
+    font-weight: 600;
+}
+
+.custom-sidebar-nav .nav-link.active i {
+    color: var(--jp-primary);
+}
+
+.custom-badge-alert {
+    background-color: var(--jp-primary) !important;
+    font-size: 0.7rem;
+    line-height: 1.5;
+    min-width: 25px;
+    text-align: center;
+}
+
+.custom-logout-section {
+    padding: 0 1rem;
+}
+
+.custom-logout-text {
+    color: #6c757d !important;
+    font-size: 0.95rem;
+}
+
+
+/* --- Estilos de Overview --- */
+
+/* Tarjetas de Resumen */
+.custom-summary-card {
+    border: none;
+    border-radius: 8px;
+    color: white;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
+}
+
+.custom-card-number {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 0.2rem;
+}
+
+.custom-card-text {
+    font-size: 0.9rem;
+}
+
+.custom-card-icon {
+    font-size: 2rem;
+    opacity: 0.7;
+}
+
+/* Colores de las tarjetas: Usando tonos de la paleta */
+.custom-applied-card {
+    background-color: #03B5AA; /* Light sea green 1 */
+}
+.custom-favorite-card {
+    background-color: var(--jp-primary); /* Primary */
+}
+.custom-alert-card {
+    background-color: var(--jp-detail); /* Persian Green */
+}
+
+/* Alerta de Perfil */
+.custom-profile-alert {
+    background-color: var(--jp-dark); /* Midnight Green */
+    border: none;
+    border-radius: 8px;
+}
+
+.custom-alert-subtext {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.custom-btn-edit-profile {
+    background-color: var(--jp-red-alert);
+    color: white;
+    font-weight: 500;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.9rem;
+}
+
+.custom-view-all {
+    font-size: 0.9rem;
+    text-decoration: none;
+}
+
+.custom-avatar-lg {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+}
+
+
+/* --- Estilos de Tabla y Tarjetas (Applied Jobs/Favorite Jobs) --- */
+
+.custom-table-container {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #e9ecef;
+}
+
+.custom-table-applied th {
+    font-weight: 500;
+    color: #6c757d;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    background-color: var(--jp-light-bg);
+}
+
+.custom-table-applied tbody tr {
+    border-bottom: 1px solid #f0f0f0;
+}
+.custom-table-applied tbody tr:last-child {
+    border-bottom: none;
+}
+
+.custom-job-title-cell {
+    padding-left: 1.5rem; /* Ajuste para Overview/Applied Jobs */
+}
+
+.custom-status-active {
+    color: var(--jp-detail);
+}
+
+/* Botón Outline para Applied Jobs (Overview) */
+.custom-btn-details-outline {
+    color: var(--jp-primary);
+    border-color: var(--jp-primary);
+    padding: 0.25rem 1.0rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+.custom-btn-details-outline:hover {
+    background-color: var(--jp-primary);
+    color: white;
+}
+
+/* Botón Activo para Applied Jobs */
+.custom-btn-details-active {
+    background-color: var(--jp-primary) !important;
+    border-color: var(--jp-primary) !important;
+    color: white !important;
+    padding: 0.25rem 1.0rem;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+/* Estilos de Insignias (Badges) */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.3em 0.55em;
+    font-weight: 500;
+}
+.custom-badge-remote { background-color: #e8f5e9; color: #388e3c; }
+.custom-badge-fulltime { background-color: #fce4ec; color: #d81b60; }
+.custom-badge-temporary { background-color: #e3f2fd; color: #1e88e5; }
+.custom-badge-contract { background-color: #fffde7; color: #fbc02d; }
+
+/* --- Iconos de Empresas (Reutilizados y Añadidos) --- */
+.custom-job-icon {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* Iconos de Applied Jobs */
+.custom-job-icon-up { background-color: #4CAF50; } /* Upwork */
+.custom-job-icon-apple-pink { background-color: #E91E63; } /* Apple Product Designer */
+.custom-job-icon-apple-dark { background-color: #000000; } /* Apple Junior Graphic Designer */
+.custom-job-icon-windows { background-color: #0089D6; } /* Windows */
+
+/* Iconos de Favorite Jobs */
+.custom-job-icon-google { background-color: #4285F4; }
+.custom-job-icon-youtube { background-color: #FF0000; }
+.custom-job-icon-google-dark { background-color: #34A853; }
+.custom-job-icon-facebook { background-color: #3b5998; }
+.custom-job-icon-twitter-blue { background-color: #00acee; }
+.custom-job-icon-tiktok { background-color: #000000; }
+.custom-job-icon-microsoft { background-color: #FFB900; }
+.custom-job-icon-pinterest { background-color: #E60023; }
+.custom-job-icon-upwork { background-color: #4CAF50; color: white; }
+
+
+/* --- Estilos de Cards para Favorite Jobs --- */
+
+.custom-card-list {
+    background-color: white;
+    padding: 0 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.custom-job-card {
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s;
+}
+
+.custom-job-card:hover {
+    background-color: var(--jp-light-bg);
+}
+
+.custom-job-card .card-body {
+    padding: 0.9rem 0;
+}
+
+.custom-bookmark-icon {
+    color: var(--jp-detail);
+    font-size: 1.5rem;
+}
+
+.custom-btn-apply-active {
+    background-color: var(--jp-primary);
+    color: white;
+    border-radius: 5px;
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+}
+
+.custom-btn-apply-active:hover {
+    background-color: var(--jp-secondary);
+    color: white;
+}
+
+.custom-btn-apply-expired {
+    background-color: #f0f0f0;
+    color: #999;
+    border-radius: 5px;
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    cursor: not-allowed;
+    box-shadow: none;
+    font-size: 0.9rem;
+}
+
+/* --- Paginación --- */
+.custom-pagination {
+    margin-top: 1rem;
+}
+
+.custom-pagination .page-link {
+    color: #6c757d;
+    border-radius: 50% !important;
+    margin: 0 4px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dee2e6;
+    transition: all 0.2s;
+}
+
+.custom-pagination .page-item.disabled .page-link {
+    background-color: transparent;
+    border-color: #dee2e6;
+    color: #adb5bd;
+}
+
+.custom-pagination .page-link.custom-page-link-active {
+    background-color: var(--jp-primary);
+    border-color: var(--jp-primary);
+    color: white;
+    font-weight: bold;
+}
+
+/* Footer */
+.custom-footer {
+    background-color: white;
+    color: #6c757d;
+}

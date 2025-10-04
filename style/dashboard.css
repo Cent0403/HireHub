@@ -1,0 +1,245 @@
+/*
+ * Paleta de Colores:
+ * --light-sea-green: #00BFB3 (Primario)
+ * --pine-green: #037971 (Secundario/Hover)
+ * --midnight-green: #023436 (Oscuro)
+ * --persian-green: #049A8F (Detalles)
+ */
+
+:root {
+    --jp-primary: #00BFB3;
+    --jp-secondary: #037971;
+    --jp-dark: #023436;
+    --jp-detail: #049A8F;
+    --jp-red-alert: #049A8F; /* Color similar al de la alerta en la imagen */
+    --jp-light-bg: #F8F9FA; /* Fondo general más claro */
+}
+
+body {
+    background-color: #f7f7f7; /* Fondo general */
+    color: var(--jp-dark);
+}
+
+/* --- Barra de Navegación Superior --- */
+.custom-navbar-top {
+    background-color: white;
+}
+
+.custom-icon-color {
+    color: var(--jp-primary);
+}
+
+.custom-navbar-links .nav-link {
+    color: #6c757d; /* Gris para enlaces no activos */
+    font-weight: 500;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.custom-navbar-links .nav-link.active {
+    color: var(--jp-primary);
+    border-bottom: 3px solid var(--jp-primary);
+}
+
+.custom-avatar-sm {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+}
+
+/* --- Barra de Búsqueda Secundaria --- */
+.custom-navbar-search {
+    background-color: white;
+}
+
+.custom-flag {
+    width: 20px;
+    height: 15px;
+    object-fit: cover;
+    border-radius: 2px;
+}
+
+.form-control, .input-group-text {
+    border-color: #e9ecef !important;
+}
+
+/* --- Sidebar --- */
+.custom-main-content {
+    min-height: calc(100vh - 120px); /* Altura de la ventana menos navs y footer */
+}
+
+.custom-sidebar {
+    background-color: white;
+    border-right: 1px solid #e9ecef;
+}
+
+.custom-sidebar-nav .nav-link {
+    color: #495057; /* Texto gris oscuro */
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: all 0.2s;
+}
+
+.custom-sidebar-nav .nav-link:hover {
+    background-color: var(--jp-light-bg);
+    color: var(--jp-dark);
+}
+
+.custom-sidebar-nav .nav-link.active {
+    background-color: #ebf6f5; /* Fondo muy claro de color primario */
+    color: var(--jp-primary);
+    font-weight: 600;
+}
+
+.custom-badge-red {
+    background-color: var(--jp-red-alert) !important;
+    font-size: 0.7rem;
+}
+
+/* --- Contenido del Dashboard (Tarjetas) --- */
+.custom-card-blue,
+.custom-card-yellow,
+.custom-card-green {
+    border: none;
+}
+
+.custom-card-blue {
+    border-left: 5px solid #007bff; /* Azul de Bootstrap para ejemplo */
+}
+.custom-icon-blue { color: #007bff; }
+.custom-icon-bg-blue { background-color: #e7f0ff; }
+
+.custom-card-yellow {
+    border-left: 5px solid #ffc107;
+}
+.custom-icon-yellow { color: #ffc107; }
+.custom-icon-bg-yellow { background-color: #fff8e1; }
+
+.custom-card-green {
+    border-left: 5px solid var(--jp-primary);
+}
+.custom-icon-green { color: var(--jp-primary); }
+.custom-icon-bg-green { background-color: #e0f2f1; } /* Fondo claro de tu color primario */
+
+/* --- Alerta de Perfil --- */
+.custom-profile-alert {
+    background-color: var(--jp-red-alert);
+    color: white;
+    border-radius: 8px;
+}
+
+.custom-alert-text {
+    color: white !important;
+}
+
+.custom-avatar-lg {
+    width: 45px;
+    height: 45px;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+.custom-edit-profile-btn {
+    background-color: #FF5A60; /* Un rojo más brillante para el botón */
+    border-color: #FF5A60;
+    font-weight: bold;
+}
+
+/* --- Tabla de Trabajos Recientemente Aplicados --- */
+.custom-view-all {
+    color: var(--jp-primary) !important;
+}
+
+.custom-table-container {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.custom-table-applied th {
+    color: #6c757d;
+    border-bottom: 1px solid #dee2e6;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.custom-table-applied tbody tr {
+    border-bottom: 1px solid #f8f9fa; /* Separador de filas muy sutil */
+}
+
+/* Estilos de Insignias (Badges) */
+.badge {
+    font-size: 0.75rem;
+    padding: 0.35em 0.65em;
+    font-weight: 500;
+}
+
+.custom-badge-remote { background-color: #e8f5e9; color: #388e3c; } /* Verde claro */
+.custom-badge-fulltime { background-color: #fce4ec; color: #d81b60; } /* Rosa */
+.custom-badge-temporary { background-color: #e3f2fd; color: #1e88e5; } /* Azul claro */
+.custom-badge-contract { background-color: #fffde7; color: #fbc02d; } /* Amarillo claro */
+
+/* Iconos de Trabajo */
+.custom-job-icon-up, .custom-job-icon-product, .custom-job-icon-junior, .custom-job-icon-visual {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: white;
+}
+
+.custom-job-icon-up { background-color: #4CAF50; } /* Verde - Muestra "Up" en la imagen */
+.custom-job-icon-product { background-color: #E91E63; /* Rosa */
+    /* Para el ícono de Apple: */
+    content: ''; /* Contenido vacío para el icono */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15.5v-2h2v2h-2zm0-4.5h2V7h-2v6z"/></svg>');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* En el HTML usé un <span> vacío para esto, si quieres un ícono específico, necesitas usar un SVG o una fuente de iconos. */
+}
+.custom-job-icon-junior { background-color: #3f51b5; /* Azul */
+    /* Para el ícono de Apple: */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 1.95c.57 0 1.05.47 1.05 1.05v.9c.5.06 1.03.14 1.56.23.41.07.74.4.74.83v2.84c0 .35-.19.67-.49.85-.92.54-1.92.83-2.92.83s-2-.29-2.92-.83c-.3-.18-.49-.5-.49-.85V4.96c0-.43.33-.76.74-.83.53-.09 1.06-.17 1.56-.23v-.9c0-.58.48-1.05 1.05-1.05zm4.99 7.42c.86 0 1.55.7 1.55 1.55v4.58c0 .86-.7 1.55-1.55 1.55H7.01c-.86 0-1.55-.7-1.55-1.55V10.92c0-.86.7-1.55 1.55-1.55h9.98zm-1.02 2.6c-.34 0-.61-.27-.61-.6v-2.12c0-.33.27-.6.61-.6h.5c.34 0 .61.27.61.6v2.12c0 .33-.27.6-.61.6h-.5zm-4.48 0c-.34 0-.61-.27-.61-.6v-2.12c0-.33.27-.6.61-.6h.5c.34 0 .61.27.61.6v2.12c0 .33-.27.6-.61.6h-.5zm-4.48 0c-.34 0-.61-.27-.61-.6v-2.12c0-.33.27-.6.61-.6h.5c.34 0 .61.27.61.6v2.12c0 .33-.27.6-.61.6h-.5zm4.48 4.75c-.34 0-.61-.27-.61-.6v-2.12c0-.33.27-.6.61-.6h.5c.34 0 .61.27.61.6v2.12c0 .33-.27.6-.61.6h-.5zm-4.48 0c-.34 0-.61-.27-.61-.6v-2.12c0-.33.27-.6.61-.6h.5c.34 0 .61.27.61.6v2.12c0 .33-.27.6-.61.6h-.5zm4.48 0c-.34 0-.61-.27-.61-.6v-2.12c0-.33.27-.6.61-.6h.5c.34 0 .61.27.61.6v2.12c0 .33-.27.6-.61.6h-.5zm4.48 0c-.34 0-.61-.27-.61-.6v-2.12c0-.33.27-.6.61-.6h.5c.34 0 .61.27.61.6v2.12c0 .33-.27.6-.61.6h-.5zM12 20.05c-.57 0-1.05-.47-1.05-1.05v-.9c-.5-.06-1.03-.14-1.56-.23-.41-.07-.74-.4-.74-.83v-2.84c0-.35.19-.67.49-.85.92-.54 1.92-.83 2.92-.83s2 .29 2.92.83c.3.18.49.5.49.85v2.84c0 .43-.33.76-.74.83-.53.09-1.06.17-1.56.23v.9c0 .58-.48 1.05-1.05 1.05z"/></svg>');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.custom-job-icon-visual { background-color: #0089D6; /* Azul claro (como el logo de Windows) */
+    /* Para el ícono de Windows: */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15.5v-2h2v2h-2zm0-4.5h2V7h-2v6z"/></svg>');
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/* Estado 'Active' en la tabla */
+.custom-status-active {
+    color: var(--jp-detail); /* Persian green */
+}
+
+/* Botones de la tabla */
+.custom-btn-details {
+    color: var(--jp-primary);
+    border-color: var(--jp-primary);
+    padding: 0.25rem 1.5rem;
+}
+
+.custom-btn-details-active {
+    background-color: var(--jp-primary) !important;
+    border-color: var(--jp-primary) !important;
+    padding: 0.25rem 1.5rem;
+}
+
+/* Footer */
+.custom-footer {
+    background-color: white;
+    color: #6c757d;
+}
