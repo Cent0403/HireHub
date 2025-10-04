@@ -1,0 +1,441 @@
+/* -------------------------------------------------------------------------- */
+/* VARIABLES - PALETA DE COLORES AGUAMARINA */
+/* -------------------------------------------------------------------------- */
+
+:root {
+    --primary-color: #00BFB3; /* Verde Aguamarina principal (Acciones, botones, activos) */
+    --primary-dark: #037971; /* Verde Pino (Hover, fondo de CV, acentos oscuros) */
+    --secondary-color: #6c757d; /* Gris para textos secundarios */
+    --light-bg: #f8f9fa; /* Fondo principal muy claro (Fondo de la página) */
+    --card-bg: #ffffff; /* Fondo de las tarjetas y navbar */
+    --dark-bg: #023436; /* Verde Medianoche (Opcional para textos o fondos muy oscuros) */
+    --border-color: #e9ecef; /* Color de borde y separadores */
+    --accent-orange: #ff9900; /* Naranja/Amarillo para la opción Highlight */
+}
+
+/* -------------------------------------------------------------------------- */
+/* GLOBAL STYLES                                 */
+/* -------------------------------------------------------------------------- */
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--light-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* -------------------------------------------------------------------------- */
+/* NAVBAR & FOOTER                                    */
+/* -------------------------------------------------------------------------- */
+
+.custom-navbar-top {
+    background-color: var(--card-bg);
+    padding: 0.75rem 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.custom-icon-color {
+    color: var(--primary-color);
+}
+
+.custom-avatar-sm {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    border: 2px solid var(--primary-color);
+}
+
+.custom-navbar-links .nav-link {
+    color: #343a40;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s;
+}
+
+.custom-navbar-links .nav-link:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-dark);
+}
+
+.custom-navbar-links .nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+    position: relative;
+}
+
+/* Indicador de página activa en el navbar */
+.custom-navbar-links .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+.custom-footer {
+    background-color: var(--card-bg);
+    color: var(--secondary-color);
+}
+
+
+/* -------------------------------------------------------------------------- */
+/* SIDEBAR (Menú Lateral)                                   */
+/* -------------------------------------------------------------------------- */
+
+.custom-sidebar {
+    background-color: var(--card-bg);
+    height: calc(100vh - 65px); /* Ajusta al alto de la pantalla menos el navbar */
+    position: sticky;
+    top: 65px; /* Altura del navbar */
+    border-right: 1px solid var(--border-color);
+}
+
+.custom-sidebar-title {
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+    color: #495057 !important;
+}
+
+.custom-sidebar-nav .nav-link {
+    color: var(--secondary-color);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.custom-sidebar-nav .nav-link i {
+    font-size: 1.1rem;
+}
+
+.custom-sidebar-nav .nav-link:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-dark);
+}
+
+.custom-sidebar-nav .nav-link.active {
+    background-color: var(--primary-color);
+    color: var(--card-bg) !important;
+    font-weight: 600;
+    /* Sombra suave de color aguamarina */
+    box-shadow: 0 4px 6px rgba(0, 191, 179, 0.3);
+}
+
+.custom-badge-red {
+    font-size: 0.65rem;
+    padding: 0.3em 0.6em;
+}
+
+/* -------------------------------------------------------------------------- */
+/* CONTENIDO PRINCIPAL (MAIN)                             */
+/* -------------------------------------------------------------------------- */
+
+.custom-main-content {
+    flex-grow: 1;
+}
+
+.custom-main-bg {
+    background-color: var(--light-bg);
+}
+
+.custom-page-title {
+    color: #212529;
+}
+
+/* Contenedor principal de tarjetas */
+.custom-profile-card {
+    border: none;
+    border-radius: 1rem;
+    background-color: var(--card-bg);
+    overflow: hidden;
+}
+
+/* -------------------------------------------------------------------------- */
+/* BOTONES Y TEXTOS                               */
+/* -------------------------------------------------------------------------- */
+
+.custom-text-primary {
+    color: var(--primary-color) !important;
+}
+
+.custom-btn-primary {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    border-radius: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    font-weight: 500;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border: none;
+}
+
+.custom-btn-primary:hover {
+    background-color: var(--primary-dark);
+    color: var(--card-bg);
+    box-shadow: 0 4px 8px rgba(3, 121, 113, 0.3);
+}
+
+.custom-btn-lg {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+}
+
+/* Botón secundario para el modal (View Jobs) */
+.custom-btn-secondary-outline {
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    background-color: transparent;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.custom-btn-secondary-outline:hover {
+    background-color: rgba(0, 191, 179, 0.05);
+    color: var(--primary-dark);
+}
+
+/* -------------------------------------------------------------------------- */
+/* ELEMENTOS DE FORMULARIO                             */
+/* -------------------------------------------------------------------------- */
+
+.custom-input,
+.custom-select,
+.custom-textarea {
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.custom-input:focus,
+.custom-select:focus,
+.custom-textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.1rem rgba(0, 191, 179, 0.25);
+}
+
+.custom-input-group-text {
+    background-color: var(--light-bg);
+    color: var(--secondary-color);
+    border: 1px solid var(--border-color);
+    border-right: none;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+/* Fondo para la sección de ubicación */
+.custom-location-bg {
+    background-color: #f4f6f8;
+    border: 1px solid var(--border-color);
+}
+
+/* Estilos de la barra de herramientas (toolbar) del editor de descripción */
+.custom-toolbar-bg {
+    background-color: #f4f6f8;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+.custom-textarea {
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+/* TAGS Y BENEFICIOS */
+.custom-badge-benefit {
+    background-color: var(--light-bg);
+    color: #495057;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.custom-badge-benefit:hover {
+    background-color: #e2e6ea;
+}
+
+.custom-badge-benefit-active {
+    background-color: var(--primary-color);
+    color: var(--card-bg);
+    border-color: var(--primary-color);
+}
+
+/* Opciones de Aplicación (Radio Cards) */
+.custom-apply-card {
+    border: 1px solid var(--border-color);
+    border-radius: 0.75rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.custom-apply-card:has(input:checked) {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(0, 191, 179, 0.5);
+}
+
+.custom-apply-card input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--secondary-color);
+    border-radius: 50%;
+    margin-top: 0.1rem;
+    float: right;
+    cursor: pointer;
+    position: relative;
+}
+
+.custom-apply-card input[type="radio"]:checked {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+}
+
+.custom-apply-card input[type="radio"]:checked::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--card-bg);
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* -------------------------------------------------------------------------- */
+/* MODAL DE PROMOCIÓN (Post Job Success)             */
+/* -------------------------------------------------------------------------- */
+
+.custom-modal-lg {
+    max-width: 700px;
+}
+
+.custom-modal-content {
+    border-radius: 1.5rem;
+    padding-top: 1rem;
+}
+
+.custom-close-btn {
+    padding: 0.5rem;
+    margin: 1rem 1rem 0 auto;
+    background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%236c757d'%3e%3cpath d='M.293.293a1 1 0 0 1 1.414 0L8 6.586 14.293.293a1 1 0 1 1 1.414 1.414L9.414 8l6.293 6.293a1 1 0 0 1-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 0 1-1.414-1.414L6.586 8 .293 1.707a1 1 0 0 1 0-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.custom-close-btn:hover {
+    opacity: 1;
+}
+
+/* Estilos de las tarjetas de promoción */
+.custom-promotion-card {
+    display: block;
+    cursor: pointer;
+    background-color: var(--light-bg);
+    border: 2px solid var(--border-color);
+    border-radius: 1rem;
+    transition: all 0.2s;
+}
+
+.custom-promotion-card:hover {
+    border-color: rgba(0, 191, 179, 0.5);
+    background-color: var(--card-bg);
+}
+
+/* Estilo para la tarjeta seleccionada (radio checked) */
+.custom-promotion-card input[type="radio"] {
+    /* Ocultar el radio button nativo */
+    display: none;
+}
+
+.custom-promotion-card input[type="radio"]:checked + .card-content {
+    background-color: rgba(0, 191, 179, 0.08); /* Fondo claro aguamarina al seleccionar */
+    border-radius: 1rem;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 191, 179, 0.3);
+}
+
+.custom-promotion-card input[type="radio"]:checked + .card-content h6 {
+    color: var(--primary-dark);
+}
+
+/* Ilustraciones de las cajas */
+.custom-box-illustration {
+    background-color: var(--card-bg);
+    height: 70px;
+    border-radius: 0.5rem;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.custom-line-sm {
+    width: 60%;
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+}
+
+.custom-line-md {
+    width: 80%;
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+}
+
+/* Estilo para Featured Job (línea activa aguamarina) */
+.custom-box-featured .custom-line-sm-active {
+    background-color: var(--primary-color);
+    width: 80%;
+}
+
+/* Estilo para Highlight Job (caja de color) */
+.custom-box-highlight {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 10px;
+}
+
+.custom-box-highlight .custom-line-sm,
+.custom-box-highlight .custom-line-md {
+    height: 6px;
+}
+
+.custom-box-highlight .custom-line-sm {
+    width: 25%;
+}
+
+.custom-box-highlight .custom-line-md {
+    width: 45%;
+}
+
+.custom-color-box {
+    width: 20%;
+    height: 40px;
+    background-color: var(--accent-orange);
+    border-radius: 0.5rem;
+    border: 1px solid #f90;
+    box-shadow: 0 2px 4px rgba(255, 153, 0, 0.3);
+}
+
+/* -------------------------------------------------------------------------- */
+/* MEDIA QUERIES (Responsividad)                             */
+/* -------------------------------------------------------------------------- */
+
+@media (max-width: 767.98px) {
+    .custom-sidebar {
+        height: auto;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+}
