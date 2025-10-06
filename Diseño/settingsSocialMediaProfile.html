@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireHub - Settings (Social Media Profile)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="/Hirehub/style/settings.css">
+</head>
+<body>
+
+    <header class="navbar navbar-expand-lg navbar-light border-bottom custom-navbar-top py-2 px-3">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center me-4" href="#"><i class="bi bi-briefcase-fill me-2 fs-4 custom-icon-color-jobpilot"></i><span class="fw-bold fs-5 custom-logo-text">HireHub</span></a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mb-2 mb-lg-0 custom-navbar-links">
+                    <li class="nav-item"><a class="nav-link" href="#">Find Candidate</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">My Jobs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Applications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Customer Supports</a></li>
+                </ul>
+            </div>
+            <div class="d-flex align-items-center ms-auto custom-navbar-profile">
+                <div class="d-flex align-items-center me-3"><i class="bi bi-telephone-fill me-1 text-muted"></i><span class="small text-muted">+1-202-555-0178</span></div>
+                <div class="dropdown me-3"><a href="#" class="text-decoration-none dropdown-toggle small text-muted" id="languageDropdown" data-bs-toggle="dropdown" aria-expanded="false"><img src="https://via.placeholder.com/16x12?text=USA" alt="flag" class="me-1"> English</a><ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="languageDropdown"><li><a class="dropdown-item" href="#">Spanish</a></li></ul></div>
+                <a href="#" class="text-decoration-none me-3 position-relative"><i class="bi bi-bell-fill fs-5 text-muted"></i></a>
+                <button class="btn btn-sm custom-btn-primary ms-3 d-flex align-items-center me-2"><i class="bi bi-plus me-1"></i> Post A Jobs</button>
+                <img src="https://via.placeholder.com/30?text=I" alt="Insta" class="rounded-circle" width="30" height="30">
+            </div>
+        </div>
+    </header>
+
+    <div class="d-flex custom-main-content">
+        
+        <nav id="sidebar" class="custom-sidebar d-none d-md-block border-end">
+            <h6 class="sidebar-heading px-3 pt-3 pb-2 text-uppercase text-muted small">EMPLOYERS DASHBOARD</h6>
+            <ul class="nav flex-column mb-auto">
+                <li class="nav-item"><a class="nav-link custom-sidebar-link" href="#"><i class="bi bi-ui-checks me-2"></i> Overview</a></li>
+                <li class="nav-item"><a class="nav-link custom-sidebar-link" href="#"><i class="bi bi-person-fill me-2"></i> Employers Profile</a></li>
+                <li class="nav-item"><a class="nav-link custom-sidebar-link" href="#"><i class="bi bi-briefcase-fill me-2"></i> Post a Job</a></li>
+                <li class="nav-item"><a class="nav-link custom-sidebar-link" href="#"><i class="bi bi-journal-text me-2"></i> My Jobs</a></li>
+                <li class="nav-item"><a class="nav-link custom-sidebar-link" href="#"><i class="bi bi-person-check-fill me-2"></i> Saved Candidate</a></li>
+                <li class="nav-item"><a class="nav-link custom-sidebar-link" href="#"><i class="bi bi-card-checklist me-2"></i> Plans & Billing</a></li>
+                <li class="nav-item"><a class="nav-link custom-sidebar-link" href="#"><i class="bi bi-building me-2"></i> All Companies</a></li>
+                <li class="nav-item"><a class="nav-link active custom-sidebar-active" href="#"><i class="bi bi-gear-fill me-2"></i> Settings</a></li>
+            </ul>
+            <ul class="nav flex-column mt-5">
+                <li class="nav-item"><a class="nav-link custom-sidebar-link" href="#"><i class="bi bi-box-arrow-left me-2"></i> Log-out</a></li>
+            </ul>
+        </nav>
+
+        <main class="custom-main-area p-5 w-100">
+            <h1 class="fs-4 fw-bold mb-4">Settings</h1>
+            
+            <ul class="nav custom-settings-tabs mb-5">
+                <li class="nav-item"><a class="nav-link custom-tab-link" href="#"><i class="bi bi-building me-1"></i> Company Info</a></li>
+                <li class="nav-item"><a class="nav-link custom-tab-link" href="#"><i class="bi bi-info-circle-fill me-1"></i> Founding Info</a></li>
+                <li class="nav-item"><a class="nav-link custom-tab-link active" href="#"><i class="bi bi-share-fill me-1"></i> Social Media Profile</a></li>
+                <li class="nav-item"><a class="nav-link custom-tab-link" href="#"><i class="bi bi-gear-fill me-1"></i> Account Setting</a></li>
+            </ul>
+
+            <form>
+                
+                <label class="form-label fw-bold">Social Link 1</label>
+                <div class="social-link-row">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-facebook" style="color:#1877F2;"></i></span>
+                        <select class="form-select custom-form-control">
+                            <option selected>Facebook</option>
+                            <option>LinkedIn</option>
+                            <option>Twitter</option>
+                        </select>
+                        <input type="text" class="form-control custom-form-control" placeholder="Profile link/url...">
+                    </div>
+                    <button type="button" class="btn remove-btn" title="Remove Link"><i class="bi bi-x-lg"></i></button>
+                </div>
+
+                <label class="form-label fw-bold">Social Link 2</label>
+                <div class="social-link-row">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-twitter" style="color:#1DA1F2;"></i></span>
+                        <select class="form-select custom-form-control">
+                            <option>Facebook</option>
+                            <option selected>Twitter</option>
+                            <option>LinkedIn</option>
+                        </select>
+                        <input type="text" class="form-control custom-form-control" placeholder="Profile link/url...">
+                    </div>
+                    <button type="button" class="btn remove-btn" title="Remove Link"><i class="bi bi-x-lg"></i></button>
+                </div>
+
+                <label class="form-label fw-bold">Social Link 2</label>
+                <div class="social-link-row">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-instagram" style="color:#C13584;"></i></span>
+                        <select class="form-select custom-form-control">
+                            <option>Facebook</option>
+                            <option>Twitter</option>
+                            <option selected>Instagram</option>
+                        </select>
+                        <input type="text" class="form-control custom-form-control" placeholder="Profile link/url...">
+                    </div>
+                    <button type="button" class="btn remove-btn" title="Remove Link"><i class="bi bi-x-lg"></i></button>
+                </div>
+                
+                <label class="form-label fw-bold">Social Link 3</label>
+                <div class="social-link-row">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-youtube" style="color:#FF0000;"></i></span>
+                        <select class="form-select custom-form-control">
+                            <option>Facebook</option>
+                            <option>Twitter</option>
+                            <option selected>Youtube</option>
+                        </select>
+                        <input type="text" class="form-control custom-form-control" placeholder="Profile link/url...">
+                    </div>
+                    <button type="button" class="btn remove-btn" title="Remove Link"><i class="bi bi-x-lg"></i></button>
+                </div>
+
+
+                <a href="#" class="add-link-btn d-flex align-items-center justify-content-center mb-5">
+                    <i class="bi bi-plus me-1 fs-5"></i> Add New Social Link
+                </a>
+
+                <button type="submit" class="btn custom-btn-primary mt-3 px-4 py-2">Save Changes</button>
+            </form>
+        </main>
+    </div>
+
+    <footer class="footer py-3 border-top text-center bg-light">
+        <div class="container">
+            <span class="text-muted small">© 2021 HireHub - Job Board. All rights Reserved</span>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
