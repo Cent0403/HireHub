@@ -1,0 +1,118 @@
+:root {
+    --custom-primary-color: #00BFB3; 
+    --jp-primary: #00BFB3;
+    --bs-primary: var(--custom-primary-color); 
+    --bs-primary-rgb: 0, 191, 179; 
+    --custom-light-bg: #D0F5F2; 
+    --custom-text-muted: #6c757d; 
+    --custom-border-color: #dee2e6;
+    --custom-progress-bg: #e9ecef;
+}
+
+.custom-navbar-top {
+    background-color: white;
+}
+
+.custom-navbar-links .nav-link {
+    color: #6c757d;
+    font-weight: 500;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+
+.custom-navbar-links .nav-link.active {
+    color: var(--jp-primary);
+    border-bottom: 3px solid var(--jp-primary);
+}
+
+.custom-header-jobpilot {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+}
+
+.custom-icon-color-jobpilot {
+    color: var(--custom-primary-color);
+}
+
+.custom-progress-bar {
+    width: 150px; 
+    height: 8px;
+    background-color: var(--custom-progress-bg);
+}
+
+.custom-progress-fill {
+    background-color: var(--bs-primary); 
+}
+
+.custom-secondary-nav .nav-link {
+    color: var(--custom-text-muted);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    transition: none; 
+}
+
+.custom-secondary-nav .custom-nav-link-active {
+    color: var(--custom-primary-color);
+    background-color: var(--custom-light-bg);
+    border-bottom: 2px solid var(--custom-primary-color);
+    border-radius: 0;
+}
+
+.custom-secondary-nav .nav-link:hover {
+    color: var(--custom-primary-color);
+}
+
+.custom-input-field {
+    border: 1px solid var(--custom-border-color);
+    box-shadow: none !important;
+}
+
+.custom-input-field:focus {
+    border-color: var(--custom-primary-color);
+}
+
+.custom-input-group-text {
+    background-color: white;
+    border: 1px solid var(--custom-border-color);
+    border-right: none;
+    color: var(--custom-text-muted);
+}
+.input-group:focus-within .custom-input-group-text {
+    border-color: var(--custom-primary-color);
+}
+
+.custom-textarea {
+    border-bottom: none !important;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    resize: vertical;
+}
+
+.custom-toolbar {
+    border: 1px solid var(--custom-border-color);
+    border-top: none !important;
+    background-color: #f8f9fa;
+    border-bottom-left-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+}
+
+.custom-toolbar .btn {
+    border-radius: 0.25rem;
+    padding: 0.3rem;
+}
+
+.custom-btn-previous {
+    color: var(--custom-text-muted);
+    border-color: var(--custom-border-color);
+}
+
+.custom-btn-primary {
+    background-color: var(--bs-primary) !important;
+    border-color: var(--bs-primary) !important;
+}
+
+.footer {
+    flex-shrink: 0;
+}
