@@ -1,6 +1,3 @@
-// Simple DB connectivity test for HireHub
-// Usage: node scripts/test-db.js
-
 const db = require('../src/db');
 
 async function run() {
@@ -12,11 +9,9 @@ async function run() {
     console.error('DB test failed:', err.message || err);
     process.exitCode = 1;
   } finally {
-    // Ensure pool is closed so the process can exit cleanly
     try {
       await db.pool.end();
     } catch (e) {
-      // ignore
     }
   }
 }

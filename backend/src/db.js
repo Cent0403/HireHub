@@ -1,7 +1,6 @@
 require('dotenv').config();
 const { Pool } = require('pg');
 
-// Read DB config from environment variables. These are defined in .env
 const pool = new Pool({
 	user: process.env.DB_USER || process.env.PGUSER,
 	host: process.env.DB_HOST || process.env.PGHOST || 'localhost',
@@ -14,7 +13,6 @@ const pool = new Pool({
 
 pool.on('error', (err) => {
 	console.error('Unexpected error on idle pg client', err);
-	// Recommended to exit the process in production apps
 });
 
 async function query(text, params) {

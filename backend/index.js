@@ -1,5 +1,3 @@
-// Minimal Express server for HireHub
-// Loads environment variables from .env (if present) and starts the server
 
 require('dotenv').config();
 const express = require('express');
@@ -8,27 +6,37 @@ const port = process.env.PORT || 4000;
 
 app.use(express.json());
 
-// Simple CORS setup allowing the frontend URL from .env
-app.use((req, res, next) => {
-  const allowed = process.env.FRONTEND_URL || '*';
-  res.header('Access-Control-Allow-Origin', allowed);
-  res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  if (req.method === 'OPTIONS') return res.sendStatus(204);
-  next();
-});
+// API routes
+const usuariosRouter = require('./src/routes/usuarios');
+const detallesCandidatoRouter = require('./src/routes/detalles_candidato');
+const candidatoArchivoRouter = require('./src/routes/candidato_archivo');
+const candidatoRedRouter = require('./src/routes/candidato_red_social');
+const detallesEmpresaRouter = require('./src/routes/detalles_empresa');
+const empresaRedRouter = require('./src/routes/empresa_red_social');
+const trabajoRouter = require('./src/routes/trabajo');
+const aplicacionRouter = require('./src/routes/aplicacion_trabajo');
+const trabajosFavRouter = require('./src/routes/trabajos_favoritos');
+const candidatosFavRouter = require('./src/routes/candidatos_favoritos');
 
-// Healthcheck
+app.use('/api/usuarios', usuariosRouter);
+app.use('/api/detalles_candidato', detallesCandidatoRouter);
+app.use('/api/candidato_archivo', candidatoArchivoRouter);
+app.use('/api/candidato_red_social', candidatoRedRouter);
+app.use('/api/detalles_empresa', detallesEmpresaRouter);
+app.use('/api/empresa_red_social', empresaRedRouter);
+app.use('/api/trabajo', trabajoRouter);
+app.use('/api/aplicacion_trabajo', aplicacionRouter);
+app.use('/api/trabajos_favoritos', trabajosFavRouter);
+app.use('/api/candidatos_favoritos', candidatosFavRouter);
+
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', env: process.env.NODE_ENV || 'development' });
 });
 
-// Example route
 app.get('/', (req, res) => {
   res.send('HireHub backend is running');
 });
 
-// Basic error handler
 app.use((err, req, res, next) => {
   console.error(err);
   res.status(500).json({ error: 'Internal Server Error' });
