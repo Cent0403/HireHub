@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const { check } = require('express-validator');
+const runValidation = require('../middlewares/validate');
 
 router.get('/', async (req, res) => {
   try {
@@ -23,17 +25,25 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
-  try {
-    const { id_candidato, id_trabajo, estado } = req.body;
-    const r = await db.query('INSERT INTO aplicacion_trabajo (id_candidato,id_trabajo,estado) VALUES ($1,$2,$3) RETURNING *', [id_candidato, id_trabajo, estado]);
-    res.status(201).json(r.rows[0]);
-  } catch (err) {
-    console.error(err);
-    if (err.code === '23505') return res.status(409).json({ error: 'Duplicate application' });
-    res.status(500).json({ error: err.message });
+router.post(
+  '/',
+  [
+    check('id_candidato').isInt().withMessage('candidato_id debe ser un entero'),
+    check('id_trabajo').isInt().withMessage('trabajo_id debe ser un entero'),
+  ],
+  runValidation,
+  async (req, res) => {
+    try {
+      const { id_candidato, id_trabajo, estado } = req.body;
+      const r = await db.query('INSERT INTO aplicacion_trabajo (id_candidato,id_trabajo,estado) VALUES ($1,$2,$3) RETURNING *', [id_candidato, id_trabajo, estado]);
+      res.status(201).json(r.rows[0]);
+    } catch (err) {
+      console.error(err);
+      if (err.code === '23505') return res.status(409).json({ error: 'Duplicate application' });
+      res.status(500).json({ error: err.message });
+    }
   }
-});
+);
 
 router.put('/:id', async (req, res) => {
   try {

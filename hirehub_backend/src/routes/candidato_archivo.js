@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const { check } = require('express-validator');
+const runValidation = require('../middlewares/validate');
 
 router.get('/', async (req, res) => {
   try {
@@ -23,16 +25,25 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
-  try {
-    const { id_usuario, nombre_archivo, ruta_archivo } = req.body;
-    const r = await db.query('INSERT INTO candidato_archivo (id_usuario,nombre_archivo,ruta_archivo) VALUES ($1,$2,$3) RETURNING *', [id_usuario, nombre_archivo, ruta_archivo]);
-    res.status(201).json(r.rows[0]);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: err.message });
+router.post(
+  '/',
+  [
+    check('id_usuario').isInt().withMessage('candidato_id debe ser un entero'),
+    check('nombre_archivo').trim().notEmpty().withMessage('nombre es obligatorio'),
+    check('ruta_archivo').optional().isString().withMessage('ruta invalida')
+  ],
+  runValidation,
+  async (req, res) => {
+    try {
+      const { id_usuario, nombre_archivo, ruta_archivo } = req.body;
+      const r = await db.query('INSERT INTO candidato_archivo (id_usuario,nombre_archivo,ruta_archivo) VALUES ($1,$2,$3) RETURNING *', [id_usuario, nombre_archivo, ruta_archivo]);
+      res.status(201).json(r.rows[0]);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: err.message });
+    }
   }
-});
+);
 
 router.put('/:id', async (req, res) => {
   try {

@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const { check } = require('express-validator');
+const runValidation = require('../middlewares/validate');
 
 router.get('/', async (req, res) => {
   try {
@@ -23,16 +25,25 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
-  try {
-    const { id_empresa, titulo, tags, salario_minimo, salario_maximo, experiencia_requerida, tipo_trabajo, ubicacion, descripcion } = req.body;
-    const r = await db.query('INSERT INTO trabajo (id_empresa,titulo,tags,salario_minimo,salario_maximo,experiencia_requerida,tipo_trabajo,ubicacion,descripcion) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING *', [id_empresa, titulo, tags ? JSON.stringify(tags) : null, salario_minimo, salario_maximo, experiencia_requerida, tipo_trabajo, ubicacion, descripcion]);
-    res.status(201).json(r.rows[0]);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: err.message });
+router.post(
+  '/',
+  [
+    check('titulo').trim().notEmpty().withMessage('titulo es obligatorio'),
+    check('descripcion').trim().notEmpty().withMessage('descripcion es obligatoria'),
+    check('salario').optional().isNumeric().withMessage('salario debe ser numérico'),
+  ],
+  runValidation,
+  async (req, res) => {
+    try {
+      const { id_empresa, titulo, tags, salario_minimo, salario_maximo, experiencia_requerida, tipo_trabajo, ubicacion, descripcion } = req.body;
+      const r = await db.query('INSERT INTO trabajo (id_empresa,titulo,tags,salario_minimo,salario_maximo,experiencia_requerida,tipo_trabajo,ubicacion,descripcion) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9) RETURNING *', [id_empresa, titulo, tags ? JSON.stringify(tags) : null, salario_minimo, salario_maximo, experiencia_requerida, tipo_trabajo, ubicacion, descripcion]);
+      res.status(201).json(r.rows[0]);
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ error: err.message });
+    }
   }
-});
+);
 
 router.put('/:id', async (req, res) => {
   try {

@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-// Get all detalles candidato
 router.get('/', async (req, res) => {
   try {
     const result = await db.query('SELECT * FROM detalles_candidato');
@@ -13,7 +12,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// Get by id
 router.get('/:id', async (req, res) => {
   try {
     const { id } = req.params;
@@ -26,7 +24,6 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// Create or update (upsert)
 router.post('/', async (req, res) => {
   try {
     const data = req.body;
@@ -44,7 +41,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Delete
 router.delete('/:id', async (req, res) => {
   try {
     const { id } = req.params;

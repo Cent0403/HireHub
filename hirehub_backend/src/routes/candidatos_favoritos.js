@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db');
+const { check } = require('express-validator');
+const runValidation = require('../middlewares/validate');
 
 router.get('/', async (req, res) => {
   try {
@@ -12,17 +14,25 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
-  try {
-    const { id_empresa, id_candidato } = req.body;
-    const r = await db.query('INSERT INTO candidatos_favoritos (id_empresa,id_candidato) VALUES ($1,$2) RETURNING *', [id_empresa, id_candidato]);
-    res.status(201).json(r.rows[0]);
-  } catch (err) {
-    console.error(err);
-    if (err.code === '23505') return res.status(409).json({ error: 'Already favorited' });
-    res.status(500).json({ error: err.message });
+router.post(
+  '/',
+  [
+    check('id_empresa').isInt().withMessage('id_empresa debe ser un entero'),
+    check('id_candidato').isInt().withMessage('id_candidato debe ser un entero')
+  ],
+  runValidation,
+  async (req, res) => {
+    try {
+      const { id_empresa, id_candidato } = req.body;
+      const r = await db.query('INSERT INTO candidatos_favoritos (id_empresa,id_candidato) VALUES ($1,$2) RETURNING *', [id_empresa, id_candidato]);
+      res.status(201).json(r.rows[0]);
+    } catch (err) {
+      console.error(err);
+      if (err.code === '23505') return res.status(409).json({ error: 'Already favorited' });
+      res.status(500).json({ error: err.message });
+    }
   }
-});
+);
 
 router.delete('/', async (req, res) => {
   try {

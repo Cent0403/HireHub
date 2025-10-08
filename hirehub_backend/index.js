@@ -1,13 +1,14 @@
-
 require('dotenv').config();
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 4000;
 
+app.use(cors()); 
 app.use(express.json());
 
-// API routes
 const usuariosRouter = require('./src/routes/usuarios');
+const authRouter = require('./src/routes/auth'); 
 const detallesCandidatoRouter = require('./src/routes/detalles_candidato');
 const candidatoArchivoRouter = require('./src/routes/candidato_archivo');
 const candidatoRedRouter = require('./src/routes/candidato_red_social');
@@ -19,6 +20,7 @@ const trabajosFavRouter = require('./src/routes/trabajos_favoritos');
 const candidatosFavRouter = require('./src/routes/candidatos_favoritos');
 
 app.use('/api/usuarios', usuariosRouter);
+app.use('/api/auth', authRouter); 
 app.use('/api/detalles_candidato', detallesCandidatoRouter);
 app.use('/api/candidato_archivo', candidatoArchivoRouter);
 app.use('/api/candidato_red_social', candidatoRedRouter);
