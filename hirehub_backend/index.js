@@ -39,10 +39,8 @@ app.get('/', (req, res) => {
   res.send('HireHub backend is running');
 });
 
-app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).json({ error: 'Internal Server Error' });
-});
+const errorHandler = require('./src/middlewares/errorHandler');
+app.use(errorHandler);
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
