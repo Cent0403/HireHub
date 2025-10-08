@@ -67,4 +67,39 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+
+router.get('/empresa/:idEmpresa', async (req, res) => {
+    try {
+        const { idEmpresa } = req.params;
+        const r = await db.query(
+            'SELECT id_trabajo, titulo, tipo_trabajo, estado, fecha_publicacion FROM trabajo WHERE id_empresa = $1 ORDER BY fecha_publicacion DESC',
+            [idEmpresa]
+        );
+        res.json(r.rows);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+router.get('/empresa/count/:idEmpresa', async (req, res) => {
+    try {
+        const { idEmpresa } = req.params;
+        const r = await db.query(
+            `SELECT 
+                COUNT(*)::int AS total,
+                SUM(CASE WHEN estado = 'ACTIVO' THEN 1 ELSE 0 END)::int AS activo,
+                SUM(CASE WHEN estado = 'DESACTIVADO' THEN 1 ELSE 0 END)::int AS desactivado
+            FROM trabajo
+            WHERE id_empresa = $1`,
+            [idEmpresa]
+        );
+        res.json(r.rows[0]);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
 module.exports = router;

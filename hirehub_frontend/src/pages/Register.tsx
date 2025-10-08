@@ -8,7 +8,6 @@ export default function Register() {
   const [correo, setCorreo] = useState('')
   const [contrasena_hash, setContrasenaHash] = useState('')
   const [contrasena_confirmacion, setContrasenaConfirmacion] = useState('')
-  const [agree, setAgree] = useState(false)
   const [loading, setLoading] = useState(false)
   const [candidatosCount, setCandidatosCount] = useState<number | null>(null)
   const [empresasCount, setEmpresasCount] = useState<number | null>(null)
@@ -51,10 +50,6 @@ export default function Register() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
-    if (!agree) {
-      alert('Debes aceptar los Terms of Services.')
-      return
-    }
     if (!nombre_completo || !usuario || !correo || !contrasena_hash) {
       alert('Rellena todos los campos requeridos.')
       return
@@ -95,7 +90,7 @@ export default function Register() {
   return (
     <div className="min-h-screen flex">
       {/* Left - form */}
-      <div className="w-full md:w-1/2 bg-white p-8 md:px-30 md:py-20 flex flex-col">
+      <div className="w-full md:w-1/2 bg-white p-8 md:px-30 md:py-20 flex flex-col justify-center">
         <header className="mb-6">
           <div className="text-blue-600 font-bold text-xl">HireHub</div>
         </header>
@@ -128,7 +123,6 @@ export default function Register() {
           </div>
 
           <form className="space-y-4" onSubmit={handleSubmit}>
-            {/* Hidden input with the selected account type */}
             <input type="hidden" name="tipo" value={role} />
 
             <div className="flex gap-4">
@@ -142,11 +136,6 @@ export default function Register() {
               <input value={contrasena_hash} onChange={(e) => setContrasenaHash(e.target.value)} className="flex-1 border border-gray-200 rounded-md px-3 py-2" placeholder="Password" type="password" />
               <input value={contrasena_confirmacion} onChange={(e) => setContrasenaConfirmacion(e.target.value)} className="flex-1 border border-gray-200 rounded-md px-3 py-2" placeholder="Confirm Password" type="password" />
             </div>
-
-            <label className="flex items-center text-sm text-gray-500">
-              <input checked={agree} onChange={(e) => setAgree(e.target.checked)} type="checkbox" className="mr-2" />
-              I've read and agree with your <a href="#" className="text-blue-600 ml-1">Terms of Services</a>
-            </label>
 
             <button disabled={loading} type="submit" className="w-full bg-blue-600 text-white py-2 rounded-md font-medium">
               {loading ? 'Creating...' : 'Create Account →'}
