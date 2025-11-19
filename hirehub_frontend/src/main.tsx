@@ -6,6 +6,7 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home/Home';
 import Jobs from './pages/Jobs/Jobs';
+import Forum from './pages/Forum/Forum';
 import EmployerDashboard from './pages/EmployerDashboard/EmployerDashboard';
 import CandidateDashboard from './pages/CandidateDashboard/CandidateDashboard';
 import { AuthProvider, AuthContext } from './context/AuthContext';
@@ -49,6 +50,7 @@ createRoot(document.getElementById('root')!).render(
         <Routes>
           <Route path="/" element={<MainLayout><Home /></MainLayout>} />
           <Route path="/jobs" element={<MainLayout><Jobs /></MainLayout>} />
+          <Route path="/forum" element={<MainLayout><Forum /></MainLayout>} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/employer/dashboard" element={<PrivateRoute element={<EmployerDashboard />} />} />

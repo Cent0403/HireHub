@@ -18,6 +18,7 @@ const trabajoRouter = require('./src/routes/trabajo');
 const aplicacionRouter = require('./src/routes/aplicacion_trabajo');
 const trabajosFavRouter = require('./src/routes/trabajos_favoritos');
 const candidatosFavRouter = require('./src/routes/candidatos_favoritos');
+const foroRouter = require('./src/routes/foro');
 
 app.use('/api/usuarios', usuariosRouter);
 app.use('/api/auth', authRouter); 
@@ -30,6 +31,7 @@ app.use('/api/trabajo', trabajoRouter);
 app.use('/api/aplicacion_trabajo', aplicacionRouter);
 app.use('/api/trabajos_favoritos', trabajosFavRouter);
 app.use('/api/candidatos_favoritos', candidatosFavRouter);
+app.use('/api/foro', foroRouter);
 
 app.get('/health', (req, res) => {
   res.json({ status: 'ok', env: process.env.NODE_ENV || 'development' });

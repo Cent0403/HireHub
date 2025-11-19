@@ -40,8 +40,16 @@ export default function Header() {
 
     return (
         <header className="w-full mx-auto bg-white px-20 py-6 flex items-center justify-between">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-8">
                 <Link to="/" className="text-blue-600 font-bold text-xl">HireHub</Link>
+                <div className="flex items-center gap-6">
+                    <Link to="/jobs" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        Trabajos
+                    </Link>
+                    <Link to="/forum" className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        Foro
+                    </Link>
+                </div>
             </div>
             <nav className="flex items-center gap-4">
                 {isAuthenticated && user ? (
