@@ -135,16 +135,41 @@ export default function FavoriteCandidates() {
                 </div>
               </div>
 
-              <button
-                onClick={() => handleRemoveFavorite(candidate.id_usuario)}
-                className="ml-4 p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
-                title="Eliminar de favoritos"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18"/>
-                  <line x1="6" y1="6" x2="18" y2="18"/>
-                </svg>
-              </button>
+              <div className="flex gap-2">
+                <button
+                  onClick={async () => {
+                    try {
+                      const checkRes = await fetch(`${apiBase}/detalles_candidato/${candidate.id_usuario}/cv`);
+                      if (checkRes.ok) {
+                        window.open(`${apiBase}/detalles_candidato/${candidate.id_usuario}/cv`, '_blank');
+                      } else {
+                        const error = await checkRes.json();
+                        toast.error(error.error || 'No se pudo descargar el CV');
+                      }
+                    } catch (err) {
+                      toast.error('Error al intentar descargar el CV');
+                    }
+                  }}
+                  className="p-2 bg-purple-100 text-purple-700 hover:bg-purple-200 rounded-lg transition-colors"
+                  title="Descargar CV"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                </button>
+                <button
+                  onClick={() => handleRemoveFavorite(candidate.id_usuario)}
+                  className="p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors"
+                  title="Eliminar de favoritos"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"/>
+                    <line x1="6" y1="6" x2="18" y2="18"/>
+                  </svg>
+                </button>
+              </div>
             </div>
           </div>
         );

@@ -7,6 +7,10 @@ const port = process.env.PORT || 4000;
 app.use(cors()); 
 app.use(express.json());
 
+// Servir archivos estáticos (uploads)
+const path = require('path');
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 const usuariosRouter = require('./src/routes/usuarios');
 const authRouter = require('./src/routes/auth'); 
 const detallesCandidatoRouter = require('./src/routes/detalles_candidato');

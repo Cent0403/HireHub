@@ -14,6 +14,8 @@ export default function Profile() {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [editing, setEditing] = useState(false);
+  const [cvUrl, setCvUrl] = useState<string | null>(null);
+  const [uploadingCv, setUploadingCv] = useState(false);
   const [formData, setFormData] = useState({
     nombre_completo: '',
     correo: '',
@@ -22,6 +24,7 @@ export default function Profile() {
 
   useEffect(() => {
     fetchProfile();
+    fetchCvInfo();
   }, []);
 
   async function fetchProfile() {
@@ -43,6 +46,83 @@ export default function Profile() {
     } finally {
       setLoading(false);
     }
+  }
+
+  async function fetchCvInfo() {
+    try {
+      const res = await fetch(`${apiBase}/detalles_candidato/${user?.id_usuario}`);
+      if (res.ok) {
+        const data = await res.json();
+        setCvUrl(data.cv_url || null);
+      }
+    } catch (err) {
+      console.error('Error al cargar información del CV:', err);
+      setCvUrl(null);
+    }
+  }
+
+  async function handleCvUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    if (file.type !== 'application/pdf') {
+      toast.error('Solo se permiten archivos PDF');
+      return;
+    }
+
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error('El archivo no debe superar los 5MB');
+      return;
+    }
+
+    setUploadingCv(true);
+    const formData = new FormData();
+    formData.append('cv', file);
+
+    try {
+      const res = await fetch(`${apiBase}/detalles_candidato/${user?.id_usuario}/cv`, {
+        method: 'POST',
+        body: formData
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        setCvUrl(data.cv_url);
+        toast.success('CV subido exitosamente');
+      } else {
+        const data = await res.json().catch(() => ({}));
+        toast.error(data?.error || 'Error al subir el CV');
+      }
+    } catch (err) {
+      toast.error('No se pudo conectar con el servidor');
+      console.error(err);
+    } finally {
+      setUploadingCv(false);
+    }
+  }
+
+  async function handleDeleteCv() {
+    if (!confirm('¿Estás seguro de que quieres eliminar tu CV?')) return;
+
+    try {
+      const res = await fetch(`${apiBase}/detalles_candidato/${user?.id_usuario}/cv`, {
+        method: 'DELETE'
+      });
+
+      if (res.ok) {
+        setCvUrl(null);
+        toast.success('CV eliminado exitosamente');
+      } else {
+        toast.error('Error al eliminar el CV');
+      }
+    } catch (err) {
+      toast.error('No se pudo conectar con el servidor');
+      console.error(err);
+    }
+  }
+
+  function handleDownloadCv() {
+    window.open(`${apiBase}/detalles_candidato/${user?.id_usuario}/cv`, '_blank');
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -187,6 +267,83 @@ export default function Profile() {
                 Tipo de Cuenta
               </label>
               <p className="text-lg text-gray-900">{profile?.tipo}</p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Sección de CV */}
+      <div className="bg-white rounded-lg shadow p-6 mt-6">
+        <h2 className="text-xl font-semibold text-gray-900 mb-6">Curriculum Vitae (CV)</h2>
+        
+        {cvUrl ? (
+          <div className="space-y-4">
+            <div className="flex items-center gap-3 p-4 bg-green-50 border border-green-200 rounded-lg">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-600">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+              <div className="flex-1">
+                <p className="font-medium text-gray-900">CV Disponible</p>
+                <p className="text-sm text-gray-600">Tu CV está listo para que las empresas lo vean</p>
+              </div>
+            </div>
+
+            <div className="flex gap-3">
+              <button
+                onClick={handleDownloadCv}
+                className="flex-1 px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium flex items-center justify-center gap-2"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Descargar CV
+              </button>
+              <button
+                onClick={handleDeleteCv}
+                className="px-4 py-3 bg-red-100 text-red-700 rounded-lg hover:bg-red-200 transition-colors font-medium flex items-center gap-2"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="3 6 5 6 21 6"/>
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                </svg>
+                Eliminar
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-4">
+            <div className="p-6 border-2 border-dashed border-gray-300 rounded-lg text-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mx-auto text-gray-400 mb-3">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" y1="15" x2="15" y2="15"/>
+              </svg>
+              <p className="text-gray-700 font-medium mb-2">No has subido tu CV</p>
+              <p className="text-gray-500 text-sm mb-4">Sube tu CV en formato PDF para que las empresas puedan verlo</p>
+              
+              <label className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium cursor-pointer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="17 8 12 3 7 8"/>
+                  <line x1="12" y1="3" x2="12" y2="15"/>
+                </svg>
+                {uploadingCv ? 'Subiendo...' : 'Subir CV (PDF)'}
+                <input
+                  type="file"
+                  accept=".pdf"
+                  onChange={handleCvUpload}
+                  disabled={uploadingCv}
+                  className="hidden"
+                />
+              </label>
+              <p className="text-xs text-gray-500 mt-3">Máximo 5MB</p>
             </div>
           </div>
         )}
