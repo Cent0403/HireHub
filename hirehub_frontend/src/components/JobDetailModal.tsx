@@ -18,6 +18,14 @@ interface Job {
   estado: string;
 }
 
+interface Company {
+  id_usuario: number;
+  correo: string;
+  nombre_completo: string;
+  usuario: string;
+  tipo: string;
+}
+
 interface JobDetailModalProps {
   jobId: number;
   isOpen: boolean;
@@ -26,8 +34,11 @@ interface JobDetailModalProps {
 
 export default function JobDetailModal({ jobId, isOpen, onClose }: JobDetailModalProps) {
   const [job, setJob] = useState<Job | null>(null);
+  const [company, setCompany] = useState<Company | null>(null);
   const [loading, setLoading] = useState(true);
   const [applying, setApplying] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [savingFavorite, setSavingFavorite] = useState(false);
   const { isAuthenticated, user } = useContext(AuthContext);
   const navigate = useNavigate();
   const apiBase = import.meta.env.VITE_API_URL as string;
@@ -46,6 +57,9 @@ export default function JobDetailModal({ jobId, isOpen, onClose }: JobDetailModa
   useEffect(() => {
     if (isOpen && jobId) {
       fetchJobDetail();
+      if (isAuthenticated && user?.tipo === 'CANDIDATO') {
+        checkIfFavorite();
+      }
     }
   }, [isOpen, jobId]);
 
@@ -56,6 +70,15 @@ export default function JobDetailModal({ jobId, isOpen, onClose }: JobDetailModa
       if (res.ok) {
         const data = await res.json();
         setJob(data);
+        
+        // Fetch company information
+        if (data.id_empresa) {
+          const companyRes = await fetch(`${apiBase}/usuarios/${data.id_empresa}`);
+          if (companyRes.ok) {
+            const companyData = await companyRes.json();
+            setCompany(companyData);
+          }
+        }
       } else {
         toast.error('Error al cargar los detalles del trabajo');
         onClose();
@@ -66,6 +89,68 @@ export default function JobDetailModal({ jobId, isOpen, onClose }: JobDetailModa
       onClose();
     } finally {
       setLoading(false);
+    }
+  }
+
+  async function checkIfFavorite() {
+    try {
+      const res = await fetch(`${apiBase}/trabajos_favoritos`);
+      if (res.ok) {
+        const data = await res.json();
+        const exists = data.some((fav: { id_candidato: number; id_trabajo: number }) =>
+          fav.id_candidato === user?.id_usuario && fav.id_trabajo === jobId
+        );
+        setIsFavorite(exists);
+      }
+    } catch (err) {
+      console.error('Error checking favorite:', err);
+    }
+  }
+
+  async function toggleFavorite() {
+    if (!isAuthenticated || user?.tipo !== 'CANDIDATO') {
+      toast.error('Solo candidatos pueden guardar trabajos');
+      return;
+    }
+
+    setSavingFavorite(true);
+    try {
+      if (isFavorite) {
+        // Remove from favorites
+        const res = await fetch(`${apiBase}/trabajos_favoritos`, {
+          method: 'DELETE',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id_candidato: user.id_usuario, id_trabajo: jobId }),
+        });
+
+        if (res.ok) {
+          setIsFavorite(false);
+          toast.success('Trabajo eliminado de favoritos');
+        } else {
+          toast.error('Error al eliminar favorito');
+        }
+      } else {
+        // Add to favorites
+        const res = await fetch(`${apiBase}/trabajos_favoritos`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ id_candidato: user.id_usuario, id_trabajo: jobId }),
+        });
+
+        if (res.ok) {
+          setIsFavorite(true);
+          toast.success('Trabajo guardado en favoritos');
+        } else if (res.status === 409) {
+          toast.error('Este trabajo ya está en favoritos');
+        } else {
+          toast.error('Error al guardar favorito');
+        }
+      }
+    } catch (err) {
+      console.error('Error toggling favorite:', err);
+      toast.error('Error al actualizar favoritos');
+    } finally {
+      setSavingFavorite(false);
     }
   }
 
@@ -200,6 +285,38 @@ export default function JobDetailModal({ jobId, isOpen, onClose }: JobDetailModa
 
             {/* Contenido del modal */}
             <div className="px-6 py-6 space-y-6">
+              {/* Información de la Empresa */}
+              {company && (
+                <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg p-5 border border-blue-100">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                      {company.nombre_completo.charAt(0).toUpperCase()}
+                    </div>
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{company.nombre_completo}</h3>
+                      <div className="flex items-center gap-4 text-sm text-gray-600">
+                        <span className="flex items-center gap-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                          </svg>
+                          @{company.usuario}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <rect width="20" height="16" x="2" y="4" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                          </svg>
+                          {company.correo}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
               {/* Salario y Experiencia */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="bg-blue-50 rounded-lg p-4">
@@ -247,15 +364,44 @@ export default function JobDetailModal({ jobId, isOpen, onClose }: JobDetailModa
                 </p>
               </div>
 
-              {/* Botón de aplicar */}
+              {/* Botones de acción */}
               <div className="sticky bottom-0 bg-white pt-4 border-t border-gray-200">
-                <button
-                  onClick={handleApplyJob}
-                  disabled={applying}
-                  className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:bg-blue-400 disabled:cursor-not-allowed"
-                >
-                  {applying ? 'Enviando...' : 'Aplicar a este trabajo'}
-                </button>
+                <div className="flex gap-3">
+                  {isAuthenticated && user?.tipo === 'CANDIDATO' && (
+                    <button
+                      onClick={toggleFavorite}
+                      disabled={savingFavorite}
+                      className={`px-6 py-3 rounded-lg font-medium transition-colors flex items-center gap-2 ${
+                        isFavorite
+                          ? 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      } disabled:opacity-50 disabled:cursor-not-allowed`}
+                      title={isFavorite ? 'Eliminar de favoritos' : 'Guardar en favoritos'}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill={isFavorite ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/>
+                      </svg>
+                      {savingFavorite ? 'Guardando...' : (isFavorite ? 'Guardado' : 'Guardar')}
+                    </button>
+                  )}
+                  {isAuthenticated && user?.tipo === 'CANDIDATO' && (
+                    <button
+                      onClick={handleApplyJob}
+                      disabled={applying}
+                      className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors disabled:bg-blue-400 disabled:cursor-not-allowed"
+                    >
+                      {applying ? 'Enviando...' : 'Aplicar a este trabajo'}
+                    </button>
+                  )}
+                  {!isAuthenticated && (
+                    <button
+                      onClick={handleApplyJob}
+                      className="flex-1 px-6 py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors"
+                    >
+                      Aplicar a este trabajo
+                    </button>
+                  )}
+                </div>
               </div>
             </div>
           </>

@@ -72,7 +72,7 @@ router.get('/empresa/:idEmpresa', async (req, res) => {
     try {
         const { idEmpresa } = req.params;
         const r = await db.query(
-            'SELECT id_trabajo, titulo, tipo_trabajo, estado, fecha_publicacion FROM trabajo WHERE id_empresa = $1 ORDER BY fecha_publicacion DESC',
+            'SELECT id_trabajo, titulo, tipo_trabajo, ubicacion, estado, fecha_publicacion, salario_minimo, salario_maximo FROM trabajo WHERE id_empresa = $1 ORDER BY fecha_publicacion DESC',
             [idEmpresa]
         );
         res.json(r.rows);
