@@ -102,7 +102,13 @@ export default function Login() {
   return (
     <div className="min-h-screen flex">
       {/* Left - form */}
-      <div className="w-full md:w-1/2 bg-white p-8 md:px-30 md:py-20 flex flex-col justify-center">
+      <div className="w-full md:w-1/2 bg-white p-8 md:px-30 md:py-20 flex flex-col justify-center relative">
+        <Link to="/" className="absolute top-6 left-6 text-gray-600 hover:text-gray-800 flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="m15 18-6-6 6-6"/>
+          </svg>
+          Home
+        </Link>
         <header className="mb-6">
           <div className="text-blue-600 font-bold text-xl">HireHub</div>
         </header>
