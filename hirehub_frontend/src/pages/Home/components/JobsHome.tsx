@@ -46,25 +46,9 @@ export default function JobsHome() {
     return (
         <main className="w-full bg-gray-100 mx-auto px-60 py-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <section>
-          <h1 className="text-4xl font-semibold mb-4">Find a job that suits your interest & skills.</h1>
+          <h1 className="text-4xl font-semibold mb-6">Find a job that suits your interest & skills.</h1>
 
-          <form className="flex gap-3 items-center mb-6" onSubmit={handleSearch}>
-            <input
-              className="flex-1 bg-white border border-gray-200 rounded px-4 py-3"
-              placeholder="Job title, Keyword..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-            />
-            <input
-              className="w-48 bg-white border border-gray-200 rounded px-4 py-3"
-              placeholder="Your Location"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-            />
-            <button className="bg-blue-600 text-white px-5 py-3 rounded">Find Job</button>
-          </form>
-
-          <div className="flex gap-4">
+          <div className="flex gap-4 mb-6">
             <div className="bg-white shadow rounded p-4 flex-1 text-center">
               <div className="text-2xl font-bold">{jobsCount?.toLocaleString() ?? '1,75,324'}</div>
               <div className="text-sm text-gray-500">Live Job</div>
@@ -81,6 +65,15 @@ export default function JobsHome() {
               <div className="text-2xl font-bold">{newJobsCount?.toLocaleString() ?? '7,532'}</div>
               <div className="text-sm text-gray-500">New Jobs</div>
             </div>
+          </div>
+
+          <div className="flex justify-center mt-6">
+            <button 
+              onClick={() => navigate('/jobs')} 
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+            >
+              Trabajos Disponibles
+            </button>
           </div>
         </section>
 

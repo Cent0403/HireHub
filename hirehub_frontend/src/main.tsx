@@ -9,6 +9,7 @@ import EmployerDashboard from './pages/EmployerDashboard/EmployerDashboard';
 import { AuthProvider, AuthContext } from './context/AuthContext';
 import { useContext } from 'react';
 import { Toaster } from 'react-hot-toast';
+import MainLayout from './components/layout/MainLayout';
 
 const PrivateRoute: React.FC<{ element: React.ReactElement }> = ({ element }) => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -44,7 +45,7 @@ createRoot(document.getElementById('root')!).render(
           }}
         />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<MainLayout><Home /></MainLayout>} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/employer/dashboard" element={<PrivateRoute element={<EmployerDashboard />} />} />
