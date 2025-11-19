@@ -1,6 +1,7 @@
 import { useState, useContext, FormEvent, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import toast from 'react-hot-toast';
 
 export default function Login() {
   const [username, setUsuario] = useState('');
@@ -43,7 +44,7 @@ export default function Login() {
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!username || !contrasena) {
-      alert('Rellena todos los campos.');
+      toast.error('Rellena todos los campos.');
       return;
     }
 
@@ -74,6 +75,7 @@ export default function Login() {
     if (user) {
       try { 
         localStorage.setItem('user', JSON.stringify(user)); 
+        toast.success(`¡Bienvenido, ${user.usuario}!`);
         
         if (user.tipo === 'EMPRESA') {
           navigate('/employer/dashboard'); 
@@ -88,10 +90,10 @@ export default function Login() {
           navigate('/'); 
       }
     } else {
-        alert(data?.message || 'Credenciales incorrectas.');
+        toast.error(data?.message || 'Credenciales incorrectas.');
       }
     } catch (err) {
-      alert('No se pudo conectar al servidor. Revisa que el backend esté corriendo.');
+      toast.error('No se pudo conectar al servidor. Revisa que el backend esté corriendo.');
     } finally {
       setLoading(false);
     }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import toast from 'react-hot-toast'
 
 export default function Register() {
   const [role, setRole] = useState<'CANDIDATO' | 'EMPRESA'>('EMPRESA')
@@ -51,11 +52,11 @@ export default function Register() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (!nombre_completo || !usuario || !correo || !contrasena_hash) {
-      alert('Rellena todos los campos requeridos.')
+      toast.error('Rellena todos los campos requeridos.')
       return
     }
     if (contrasena_hash !== contrasena_confirmacion) {
-      alert('Las contraseñas no coinciden.')
+      toast.error('Las contraseñas no coinciden.')
       return
     }
 
@@ -75,13 +76,13 @@ export default function Register() {
 
       const data = await res.json().catch(() => ({}))
       if (res.ok) {
-        alert('Cuenta creada correctamente. Serás redirigido al login.')
-        navigate('/login')
+        toast.success('Cuenta creada correctamente. Serás redirigido al login.')
+        setTimeout(() => navigate('/login'), 1500)
       } else {
-        alert(data?.message || 'Error al crear la cuenta.')
+        toast.error(data?.message || 'Error al crear la cuenta.')
       }
     } catch (err) {
-      alert('No se pudo conectar al servidor. Revisa que el backend esté corriendo.')
+      toast.error('No se pudo conectar al servidor. Revisa que el backend esté corriendo.')
     } finally {
       setLoading(false)
     }
