@@ -5,7 +5,9 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Home from './pages/Home/Home';
+import Jobs from './pages/Jobs/Jobs';
 import EmployerDashboard from './pages/EmployerDashboard/EmployerDashboard';
+import CandidateDashboard from './pages/CandidateDashboard/CandidateDashboard';
 import { AuthProvider, AuthContext } from './context/AuthContext';
 import { useContext } from 'react';
 import { Toaster } from 'react-hot-toast';
@@ -46,9 +48,11 @@ createRoot(document.getElementById('root')!).render(
         />
         <Routes>
           <Route path="/" element={<MainLayout><Home /></MainLayout>} />
+          <Route path="/jobs" element={<MainLayout><Jobs /></MainLayout>} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/employer/dashboard" element={<PrivateRoute element={<EmployerDashboard />} />} />
+          <Route path="/candidate/dashboard" element={<PrivateRoute element={<CandidateDashboard />} />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>

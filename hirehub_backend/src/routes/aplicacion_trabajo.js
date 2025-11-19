@@ -27,6 +27,11 @@ router.get('/:id', async (req, res) => {
 
 router.post(
   '/',
+  (req, res, next) => {
+    console.log('=== POST /aplicacion_trabajo ===');
+    console.log('Body recibido:', req.body);
+    next();
+  },
   [
     check('id_candidato').isInt().withMessage('candidato_id debe ser un entero'),
     check('id_trabajo').isInt().withMessage('trabajo_id debe ser un entero'),
@@ -35,11 +40,13 @@ router.post(
   async (req, res) => {
     try {
       const { id_candidato, id_trabajo, estado } = req.body;
+      console.log('Pasó validación. Datos:', { id_candidato, id_trabajo, estado });
       const r = await db.query('INSERT INTO aplicacion_trabajo (id_candidato,id_trabajo,estado) VALUES ($1,$2,$3) RETURNING *', [id_candidato, id_trabajo, estado]);
       res.status(201).json(r.rows[0]);
     } catch (err) {
       console.error(err);
       if (err.code === '23505') return res.status(409).json({ error: 'Duplicate application' });
+      if (err.code === '23514') return res.status(400).json({ error: 'Estado inválido. Valores permitidos: Revisando, Pendiente, Denegado, Aceptado' });
       res.status(500).json({ error: err.message });
     }
   }

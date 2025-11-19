@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect, ReactNode } from 'react';
 
 interface User {
-  id: number;
+  id_usuario: number;
   usuario: string;
   tipo: 'CANDIDATO' | 'EMPRESA';
 }
@@ -32,7 +32,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   );
   const [user, setUser] = useState<User | null>(() => {
     const storedUser = localStorage.getItem('user');
-    return storedUser ? JSON.parse(storedUser) : null;
+    if (storedUser) {
+      const parsed = JSON.parse(storedUser);
+      console.log('Usuario recuperado de localStorage:', parsed);
+      return parsed;
+    }
+    return null;
   });
   
   const isAuthenticated = !!userToken;
@@ -54,11 +59,13 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       const parts = token.split('.');
       if (parts.length === 3) {
         const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+        console.log('Payload del token:', payload);
         const userData: User = {
-          id: payload.id,
+          id_usuario: payload.id,
           usuario: payload.usuario,
           tipo: payload.tipo
         };
+        console.log('Usuario guardado:', userData);
         setUser(userData);
         localStorage.setItem('user', JSON.stringify(userData));
       }
